@@ -1,0 +1,12 @@
+data/cnpjs.json
+data/grafo.png
+grafo_master.html
+grafo_pessoas.html
+.venv/
+__pycache__/
+*.pyc
+.env
+*.egg-info/
+dist/
+.idea/
+uv.lock

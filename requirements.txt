@@ -1,5 +1,12 @@
 requests
 pandas
+numpy
 networkx
 matplotlib
+seaborn
 pyvis
+scikit-learn
+scipy
+jupyter
+ipykernel
+nbconvert

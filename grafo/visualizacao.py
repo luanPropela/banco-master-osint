@@ -1,12 +1,3 @@
-"""
-Camada de visualização — HTML interativo (PyVis) e PNG estático (Matplotlib).
-
-Nenhuma função aqui calcula métricas; espera-se que os atributos
-relevantes (em especial `betweenness`) já estejam persistidos nos nós
-pelo módulo `analise`. Isso mantém a separação de responsabilidades:
-analise = números, visualizacao = pixels.
-"""
-
 import os
 import webbrowser
 
@@ -18,37 +9,23 @@ from config import BG_GRAFO, COR_EMPRESA, COR_PESSOA
 
 CORES_POR_TIPO = {"empresa": COR_EMPRESA, "pessoa": COR_PESSOA}
 
-
 def _abrir_no_browser(caminho_html: str) -> None:
-    """Abre o arquivo HTML gerado no navegador padrão do sistema."""
     caminho_absoluto = os.path.abspath(caminho_html)
     webbrowser.open(f"file:///{caminho_absoluto}")
     print(f"[VIZ] aberto: {caminho_absoluto}")
 
-
 def _injetar_css_body(html: str) -> str:
-    """Remove margens padrão do PyVis para o grafo ocupar a tela inteira."""
     return html.replace(
         "<body>",
         f"<body style='margin:0; padding:0; overflow:hidden; background:{BG_GRAFO};'>",
     )
 
-
 def _salvar_html(net: Network, output: str) -> None:
-    """Gera o HTML do PyVis, ajusta o CSS e grava no disco."""
     html = _injetar_css_body(net.generate_html())
     with open(output, "w", encoding="utf-8") as arquivo:
         arquivo.write(html)
 
-
 def pyvis_societario(grafo: nx.DiGraph, output: str = "grafo_master.html") -> None:
-    """
-    Gera HTML interativo do grafo completo sócio → empresa.
-
-    O tamanho do nó é proporcional ao betweenness (já calculado por
-    `analise.calcular_metricas`) — quanto maior, mais "central" no fluxo
-    de relações. Empresas são azuis, pessoas são vermelhas.
-    """
     net = Network(
         height="100vh",
         width="100%",
@@ -59,8 +36,6 @@ def pyvis_societario(grafo: nx.DiGraph, output: str = "grafo_master.html") -> No
         notebook=False,
     )
 
-    # Layout force-directed com gravidade negativa = nós se repelem,
-    # produzindo um desenho mais "aberto" e legível.
     net.barnes_hut(
         gravity=-8000,
         central_gravity=0.3,
@@ -72,8 +47,7 @@ def pyvis_societario(grafo: nx.DiGraph, output: str = "grafo_master.html") -> No
     for node_id in grafo.nodes:
         atributos = grafo.nodes[node_id]
         betweenness = atributos.get("betweenness", 0)
-        # Escala 10..60 para o tamanho — limita os extremos para não
-        # quebrar o layout em casos com betweenness muito alta.
+
         tamanho = max(10, min(60, 10 + betweenness * 500))
 
         tooltip = (
@@ -99,7 +73,7 @@ def pyvis_societario(grafo: nx.DiGraph, output: str = "grafo_master.html") -> No
         net.add_edge(
             origem,
             destino,
-            # `label` aparece direto sobre a aresta; `title` é o hover.
+
             label=qualificacao,
             title=f"{qualificacao} | entrada: {data_entrada}",
             arrows="to",
@@ -109,15 +83,7 @@ def pyvis_societario(grafo: nx.DiGraph, output: str = "grafo_master.html") -> No
     _salvar_html(net, output)
     _abrir_no_browser(output)
 
-
 def pyvis_pessoas(projecao: nx.Graph, output: str = "grafo_pessoas.html") -> None:
-    """
-    Gera HTML da projeção pessoa-pessoa (saída de `grafo.projetar_pessoas`).
-
-    A espessura da aresta cresce com o número de empresas em comum e o
-    tooltip lista esses nomes — uma aresta "grossa" entre dois nomes é
-    sinal forte de aliança recorrente.
-    """
     net = Network(
         height="100vh",
         width="100%",
@@ -156,7 +122,7 @@ def pyvis_pessoas(projecao: nx.Graph, output: str = "grafo_pessoas.html") -> Non
         net.add_edge(
             pessoa_a,
             pessoa_b,
-            value=peso,           # PyVis usa `value` para escalar espessura
+            value=peso,
             width=1 + peso,
             title=tooltip,
             color="#888888",
@@ -165,14 +131,7 @@ def pyvis_pessoas(projecao: nx.Graph, output: str = "grafo_pessoas.html") -> Non
     _salvar_html(net, output)
     _abrir_no_browser(output)
 
-
 def matplotlib_estatico(grafo: nx.DiGraph, output: str = "data/grafo.png") -> None:
-    """
-    Renderiza uma imagem PNG estática do grafo para documentação.
-
-    Não pretende competir em legibilidade com o PyVis — serve para README,
-    relatórios em PDF e qualquer canal que não execute HTML interativo.
-    """
     print(f"[VIZ] gerando PNG estático em {output}...")
 
     plt.figure(figsize=(20, 14))
@@ -186,7 +145,6 @@ def matplotlib_estatico(grafo: nx.DiGraph, output: str = "data/grafo.png") -> No
     nx.draw_networkx_nodes(grafo, posicoes, node_color=cores_nos, node_size=80, alpha=0.85)
     nx.draw_networkx_edges(grafo, posicoes, edge_color="#444", arrows=True, alpha=0.5)
 
-    # Rotula apenas os nós com maior betweenness para evitar poluição visual.
     top_labels = sorted(
         grafo.nodes,
         key=lambda n: grafo.nodes[n].get("betweenness", 0),

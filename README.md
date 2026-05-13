@@ -1,126 +1,135 @@
-# BancoMaster OSINT
+# banco-master-osint
 
-Mapeamento da rede societária do conglomerado **Banco Master** a partir de
-dados públicos da Receita Federal, com visualização interativa em grafo
-para análise OSINT.
+Coleta e análise de dados públicos sobre a rede societária e operacional do conglomerado Banco Master, liquidado pelo BACEN em nov/2025.
 
-## Contexto
+Pesquisa OSINT a partir de cadastros públicos da Receita Federal (via API Minha Receita) e da CVM (cadastro de fundos, informe diário). Saída principal é um SQLite (`data/master.db`) com 5 tabelas para consulta direta.
 
-Em novembro de 2025 o Banco Central decretou a liquidação extrajudicial do
-Banco Master e de suas controladas após o estouro do escândalo de manobras
-contábeis e operações suspeitas com CDBs. A **Operação Compliance Zero**,
-da Polícia Federal, mira o controlador Daniel Vorcaro e o entorno
-societário do grupo. Este projeto pega o QSA (Quadro de Sócios e
-Administradores) das empresas do conglomerado e desenha as relações
-pessoa↔empresa para facilitar a leitura jornalística e didática.
+## Estrutura
 
-> ⚠️ **Fins educacionais e jornalísticos.** Todos os dados utilizados são
-> públicos, obtidos via [Minha Receita](https://minhareceita.org), que
-> expõe o cadastro da Receita Federal. CPFs vêm mascarados na origem.
+```
+banco-master-osint/
+├── config.py                 constantes (seeds, cores, caminhos)
+├── pipeline.py               orquestra fase 1 (coleta -> grafo -> visualização)
+├── db.py                     fase 3: consolida caches JSON em SQLite
+├── vorcaro.py                ego-grafo standalone focado em uma pessoa
+├── coleta/
+│   ├── receita.py            fase 1: BFS Minha Receita -> data/cnpjs.json
+│   └── cvm_diario.py         fase 4: informe diário CVM -> tabela inf_diario
+├── grafo/
+│   ├── societario.py         construção do DiGraph (fase 1)
+│   ├── b2b.py                fase 2: coleta CVM + grafo b2b -> data/fundos_b2b.json
+│   ├── analise.py            métricas (betweenness, componentes, articulação)
+│   └── visualizacao.py       pyvis e matplotlib
+├── queries/
+│   └── exemplos.sql          queries de exploração sobre data/master.db
+├── data/                     caches, db e zips (gitignored)
+├── requirements.txt
+└── README.md
+```
 
-## Instalação
+## Setup
 
 ```bash
 python -m venv .venv
-# Windows
-.venv\Scripts\activate
-# Linux/Mac
-source .venv/bin/activate
-
+.venv\Scripts\activate            # windows
+source .venv/bin/activate         # linux/mac
 pip install -r requirements.txt
 ```
 
-Requisitos: Python 3.10+ (foi desenvolvido em 3.14).
+## Pipeline
 
-## Uso básico
+Todos os módulos rodam a partir da raiz do projeto via `python -m`. Cada fase é independente — pode rodar sozinha desde que a anterior já tenha gerado seu cache.
+
+### Fase 1 — QSA das entidades Master
 
 ```bash
-python main.py
+python -m coleta.receita
 ```
 
-Na primeira execução, o script bate na API Minha Receita e cacheia o
-resultado em `data/cnpjs.json`. Nas execuções seguintes, ele carrega do
-cache — apague o arquivo (ou chame `carregar_ou_coletar(forcar=True)`)
-para forçar uma nova coleta.
+BFS via Minha Receita expandindo sócios PJ até `MAX_DEPTH` (`config.py`). Salva `data/cnpjs.json`.
 
-Ao final, dois HTMLs são abertos automaticamente no navegador:
+### Fase 2 — Cadastro CVM e grafo B2B
 
-- `grafo_master.html` — grafo completo sócio → empresa
-- `grafo_pessoas.html` — projeção pessoa-pessoa (sócios em comum)
-
-## Estrutura do projeto
-
-| Arquivo | Responsabilidade |
-|---|---|
-| `config.py` | Seeds, profundidade do BFS, cores e caminhos de cache |
-| `coleta.py` | Consulta à API Minha Receita e cache em disco |
-| `grafo.py` | Construção do `DiGraph` e projeção pessoa-pessoa |
-| `analise.py` | Métricas (graus, betweenness), componentes, busca por nome |
-| `visualizacao.py` | Renderização PyVis (HTML interativo) e Matplotlib (PNG) |
-| `main.py` | Pipeline completo (ponto de entrada) |
-| `data/` | Cache da coleta e exports estáticos |
-
-Cada módulo tem responsabilidade única — quem quiser usar só a coleta,
-por exemplo, pode importar `coleta.carregar_ou_coletar` sem trazer
-PyVis junto.
-
-## Adicionando novos seeds
-
-Os seeds vivem em `config.py`. Para investigar outro conglomerado, basta
-adicionar pares `CNPJ → razão social`:
-
-```python
-SEEDS = {
-    "33923798000100": "Banco Master S.A.",
-    "12345678000199": "Nova Empresa S.A.",   # ← novo seed
-    ...
-}
+```bash
+python -m grafo.b2b
 ```
 
-A coleta segue automaticamente sócios pessoa jurídica até a profundidade
-definida em `MAX_DEPTH`. Pessoas físicas não são expandidas porque o
-CPF vem mascarado pela Receita.
+Baixa `cad_fi.csv` da CVM (~46k fundos), filtra os com vínculo Master (~57), enriquece com QSA das 6 entidades. Salva `data/fundos_b2b.json` e gera `grafo_b2b.html`.
 
-## Métricas exibidas
+### Fase 3 — Camada relacional
 
-- **in_degree**: número de sócios que apontam para o nó (entrada). Para
-  uma empresa, é o tamanho do QSA. Para uma pessoa, normalmente é 0.
-- **out_degree**: número de empresas em que o nó participa (saída). Para
-  uma pessoa, conta quantas empresas ela é sócia. Para uma empresa,
-  conta quantas outras ela é sócia.
-- **betweenness centrality**: fração dos caminhos mais curtos do grafo
-  que passam por aquele nó. Nós com betweenness alta são "pontes" entre
-  comunidades — costumam ser o alvo mais interessante numa investigação
-  OSINT, porque cortá-los desconecta partes da rede.
+```bash
+python -m db
+```
 
-O grafo também é analisado quanto a:
+Lê os dois caches JSON e popula `data/master.db` com:
+- `empresas`, `pessoas`, `participacoes`, `papeis_fundo`
 
-- **Componentes desconexos** — blocos isolados podem ser veículos
-  paralelos do mesmo grupo.
-- **Pontos de articulação** — nós cuja remoção fragmenta o grafo, ou
-  seja, "costuram" subgrupos.
+A tabela `inf_diario` (fase 4) é preservada se já existir.
 
-## Fontes de dados
+### Fase 4 — Informe diário CVM (caso base)
 
-- API [Minha Receita](https://minhareceita.org) — proxy aberto do
-  cadastro da Receita Federal (CNPJ, QSA, CNAE, situação cadastral).
-- Cobertura noticiosa da Operação Compliance Zero (Folha, Estadão, Veja,
-  Valor) — usada apenas para selecionar os seeds iniciais.
+```bash
+python -m coleta.cvm_diario
+```
 
-## Roadmap
+Caso base: 4 fundos FMP-FGTS, janela 2025-01 a 2026-04. Zips ficam cacheados em `data/cvm_diario/`. Para expandir, editar `FUNDOS_ALVO` e `PERIODO` no script.
 
-- [ ] Persistir o grafo em formato `gexf` / `graphml` para abrir no Gephi
-- [ ] Exportar tabela de métricas em CSV
-- [ ] Adicionar detecção de comunidades (Louvain / Leiden)
-- [ ] Cruzar com dados do Portal da Transparência (sanções, CEIS, CNEP)
-- [ ] Histórico do QSA (entradas/saídas de sócios ao longo do tempo)
-- [ ] Anotações manuais de relações fora do QSA (familiares, operações PF)
-- [ ] Dashboard web (Streamlit) para navegação interativa
+### Pipeline completo (fase 1 + grafo + viz)
 
-## Aviso legal
+```bash
+python pipeline.py
+```
 
-Este projeto utiliza exclusivamente **dados públicos** já disponíveis no
-cadastro da Receita Federal, replicados pela API Minha Receita. Foi
-construído com fins **educacionais, de pesquisa e jornalísticos**. Não
-há tentativa de identificação de pessoas naturais a partir de CPFs
-mascarados, nem coleta de informações sensíveis.
+## Exploração via SQL
+
+Apontar DBeaver ou DB Browser pra `data/master.db`. Queries prontas em `queries/exemplos.sql`. Algumas amostras:
+
+```sql
+-- empresas onde Vorcaro participa
+SELECT e.razao_social, p.qualificacao
+FROM participacoes p
+JOIN pessoas s   ON s.id = p.socio_pessoa_id
+JOIN empresas e  ON e.cnpj = p.empresa_cnpj
+WHERE s.nome LIKE '%VORCARO%';
+
+-- top gestoras parceiras
+SELECT prestador_nome, COUNT(*) AS n
+FROM papeis_fundo
+WHERE papel = 'gestor' AND prestador_nome IS NOT NULL
+GROUP BY prestador_nome ORDER BY n DESC LIMIT 10;
+
+-- ultimos dias de cada FMP-FGTS
+SELECT fundo_cnpj, data, pl, cotistas, captacao_dia, resgate_dia
+FROM inf_diario
+ORDER BY fundo_cnpj, data DESC;
+```
+
+## Estado atual do banco
+
+```
+empresas        82    (7 seeds + 57 fundos + 18 prestadores)
+pessoas         19
+participacoes   30
+papeis_fundo   156
+inf_diario     517    (caso base: 4 FMP-FGTS, 16 meses)
+```
+
+## Fontes
+
+- Minha Receita — https://minhareceita.org
+- CVM Dados Abertos — https://dados.cvm.gov.br
+- Cadastro de fundos — https://dados.cvm.gov.br/dataset/fi-cad
+- Informe diário — https://dados.cvm.gov.br/dataset/fi-doc-inf_diario
+
+## Limites declarados
+
+- Snapshot, não histórico. Mudanças anteriores à coleta não aparecem nos cadastros.
+- CPFs vêm mascarados na origem. Pessoas com nomes idênticos seriam fundidas.
+- O grafo mostra relação cadastral, não imputa culpa.
+- A coleta diária cobre só os 4 FMP-FGTS no caso base.
+- Cadastro de FII na CVM retornou 404 nas tentativas — só FI foi processado.
+
+## Aviso
+
+Pesquisa educacional e jornalística sobre dados públicos. Todos os scripts são reproduzíveis: qualquer pessoa com Python e internet roda e chega nos mesmos resultados.

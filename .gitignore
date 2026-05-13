@@ -1,7 +1,9 @@
-data/cnpjs.json
-data/grafo.png
-grafo_master.html
-grafo_pessoas.html
+data/*.json
+data/*.csv
+data/*.db
+data/*.png
+data/cvm_diario/
+*.html
 .venv/
 __pycache__/
 *.pyc
@@ -9,4 +11,9 @@ __pycache__/
 *.egg-info/
 dist/
 .idea/
+.vscode/
 uv.lock
+_limpar.py
+RELATORIO.md
+GLOSSARIO.md
+

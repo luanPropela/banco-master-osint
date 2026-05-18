@@ -3,6 +3,8 @@ data/*.csv
 data/*.db
 data/*.png
 data/cvm_diario/
+data/cvm_carteira/
+data/*.zip
 *.html
 .venv/
 __pycache__/

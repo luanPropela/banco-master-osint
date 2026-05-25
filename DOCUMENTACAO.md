@@ -270,7 +270,39 @@ banco-master-osint/
     └── cvm_sancao.zip         PAS CVM
 ```
 
-### 6.5 Solução de problemas comuns
+### 6.5 Apresentação / pitch
+
+Há um deck pronto em `pitch.md`, formato **Marp** (markdown com diretivas).
+
+**Renderizar via CLI (qualquer sistema):**
+
+```bash
+# instala o Marp CLI (uma vez)
+npm install -g @marp-team/marp-cli
+
+# exporta para PDF
+marp pitch.md --pdf -o pitch.pdf
+
+# exporta para HTML standalone
+marp pitch.md --html -o pitch.html
+
+# exporta para PowerPoint
+marp pitch.md --pptx -o pitch.pptx
+
+# preview ao vivo enquanto edita
+marp pitch.md --server
+```
+
+**Renderizar via VSCode (mais fácil):**
+
+1. Instalar extensão **"Marp for VS Code"**
+2. Abrir `pitch.md`
+3. Clicar no ícone de preview (canto superior direito)
+4. Exportar pelo menu da extensão (PDF/HTML/PPTX)
+
+Os 16 slides cobrem: hook, contexto do caso, dataset, método, 4 achados-bomba, RF Proximity, limites, próximos passos, repositório.
+
+### 6.6 Solução de problemas comuns
 
 **Erro: `ModuleNotFoundError: No module named 'pandas'`**
 → Ambiente virtual não foi ativado, ou `pip install -r requirements.txt` falhou. Confirme com `which python` (Linux) ou `where python` (Windows) — deve apontar pra `.venv/`.

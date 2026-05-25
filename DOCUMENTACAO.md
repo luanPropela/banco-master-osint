@@ -272,7 +272,23 @@ banco-master-osint/
 
 ### 6.5 Apresentação / pitch
 
-Há um deck pronto em `pitch.md`, formato **Marp** (markdown com diretivas).
+Há **duas versões** do pitch disponíveis:
+
+**Versão A — `pitch.html` (mais simples)**
+
+HTML standalone com 16 slides. Não precisa instalar nada. Em qualquer SO (Windows/Arch/Parrot):
+
+1. Dê dois cliques em `pitch.html` (ou abra com seu navegador)
+2. Use **setas ←/→** para navegar entre slides
+3. Tecle **F** para tela cheia (ESC para sair)
+4. Tecle **Home/End** para ir ao primeiro/último slide
+5. Clique em qualquer lugar para avançar (modo apresentação)
+
+Tudo offline, sem CDN. Funciona em apresentação por projetor, Google Meet, Teams.
+
+**Versão B — `pitch.md` (Marp, para edição)**
+
+Para editar o conteúdo do pitch, use o arquivo Marp.
 
 **Renderizar via CLI (qualquer sistema):**
 

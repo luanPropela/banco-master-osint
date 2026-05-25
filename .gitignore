@@ -6,6 +6,7 @@ data/cvm_diario/
 data/cvm_carteira/
 data/*.zip
 *.html
+!pitch.html
 .venv/
 __pycache__/
 *.pyc

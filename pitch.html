@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Banco Master OSINT — pitch</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    height: 100%;
+    width: 100%;
+    background: #1a1a2e;
+    color: #ffffff;
+    font-family: -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    overflow: hidden;
+  }
+
+  .slide {
+    position: absolute;
+    inset: 0;
+    padding: 60px 90px;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    animation: fadein 0.4s ease;
+  }
+
+  .slide.active { display: flex; }
+
+  @keyframes fadein {
+    from { opacity: 0; transform: translateX(20px); }
+    to   { opacity: 1; transform: translateX(0); }
+  }
+
+  h1 {
+    color: #FFD700;
+    font-size: 2.6em;
+    border-bottom: 3px solid #FFD700;
+    padding-bottom: 12px;
+    margin-bottom: 32px;
+  }
+
+  h2 {
+    color: #4A90D9;
+    font-size: 1.6em;
+    margin-bottom: 24px;
+  }
+
+  h3 {
+    color: #5BA85A;
+    font-size: 1.3em;
+    margin-bottom: 16px;
+  }
+
+  p, li {
+    font-size: 1.3em;
+    line-height: 1.6;
+    margin-bottom: 12px;
+  }
+
+  ul, ol {
+    margin: 0 0 20px 40px;
+  }
+
+  strong { color: #FFD700; }
+  em { color: #cccccc; }
+
+  code {
+    background: #2a2a4e;
+    color: #5BA85A;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-family: "JetBrains Mono", "Cascadia Code", Consolas, monospace;
+    font-size: 0.9em;
+  }
+
+  pre {
+    background: #0f0f1f;
+    color: #c8c8d8;
+    padding: 24px;
+    border-radius: 8px;
+    border-left: 4px solid #FFD700;
+    font-family: "JetBrains Mono", "Cascadia Code", Consolas, monospace;
+    font-size: 1em;
+    line-height: 1.5;
+    overflow: auto;
+    margin-bottom: 16px;
+  }
+
+  table {
+    border-collapse: collapse;
+    margin: 16px 0;
+    font-size: 1.1em;
+    width: 100%;
+    max-width: 1100px;
+  }
+
+  th {
+    background: #2a2a4e;
+    color: #FFD700;
+    padding: 12px 16px;
+    text-align: left;
+    border-bottom: 2px solid #FFD700;
+  }
+
+  td {
+    padding: 10px 16px;
+    border-bottom: 1px solid #333;
+  }
+
+  blockquote {
+    border-left: 5px solid #FFD700;
+    color: #dddddd;
+    font-style: italic;
+    padding: 8px 24px;
+    margin: 20px 0;
+    font-size: 1.2em;
+  }
+
+  .center { text-align: center; }
+  .lead h1 { border: none; font-size: 3.5em; }
+  .lead h2 { color: #cccccc; font-weight: normal; }
+
+  .big {
+    font-size: 4em;
+    color: #FFD700;
+    text-align: center;
+    font-weight: 700;
+    margin: 0.3em 0;
+    letter-spacing: -0.02em;
+  }
+
+  .big.red { color: #E85D5D; }
+
+  .small { font-size: 0.75em; color: #888; }
+
+  .badge {
+    display: inline-block;
+    background: #2a2a4e;
+    color: #FFD700;
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 0.8em;
+    margin-bottom: 16px;
+  }
+
+  .bg-red    { background: #2a1a1e !important; }
+  .bg-green  { background: #1e2a1a !important; }
+  .bg-yellow { background: #2a2a1e !important; }
+  .bg-blue   { background: #1a2a2e !important; }
+
+  .columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+
+  .controls {
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    z-index: 100;
+  }
+
+  .counter {
+    color: #888;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.9em;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 6px 14px;
+    border-radius: 16px;
+  }
+
+  .arrow {
+    background: rgba(74, 144, 217, 0.2);
+    color: #FFD700;
+    border: 1px solid rgba(255, 215, 0, 0.4);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.4em;
+    line-height: 1;
+    transition: all 0.2s;
+  }
+
+  .arrow:hover {
+    background: rgba(255, 215, 0, 0.3);
+    transform: scale(1.1);
+  }
+
+  .progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: #FFD700;
+    transition: width 0.3s ease;
+    z-index: 100;
+  }
+
+  .hint {
+    position: fixed;
+    bottom: 20px;
+    left: 30px;
+    color: #555;
+    font-size: 0.8em;
+    z-index: 100;
+  }
+
+  @media (max-width: 800px) {
+    .slide { padding: 30px 20px; }
+    h1 { font-size: 1.8em; }
+    .big { font-size: 2.5em; }
+    .columns { grid-template-columns: 1fr; }
+    table { font-size: 0.85em; }
+    th, td { padding: 6px 8px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+
+<!-- SLIDE 1 — CAPA -->
+<section class="slide active lead">
+  <div class="center">
+    <h1>Banco Master OSINT</h1>
+    <h2>Mapeando o colapso com dados públicos</h2>
+    <br><br>
+    <p style="color:#888"><em>projeto de investigação reproduzível em Python</em></p>
+    <p style="color:#888">maio / 2026</p>
+  </div>
+</section>
+
+<!-- SLIDE 2 — HOOK -->
+<section class="slide">
+  <h1>A pergunta</h1>
+  <p>Quando o BACEN puxou o plug do Banco Master em <strong>18 de novembro de 2025</strong>, o banco tinha:</p>
+  <div class="big">R$ 80 bilhões em ativos</div>
+  <div class="big red">R$ 4 milhões em caixa</div>
+  <br>
+  <blockquote>O resto está numa fraude de R$ 52 bilhões — a maior da história bancária brasileira.</blockquote>
+  <p>Dá pra mapear quem operava esse esquema usando <strong>só dados públicos?</strong></p>
+</section>
+
+<!-- SLIDE 3 — CASO EM 30s -->
+<section class="slide">
+  <h1>O caso em 30 segundos</h1>
+  <ul>
+    <li><strong>Banco Master</strong>, controlado por <strong>Daniel Vorcaro</strong>, oferecia CDB a <strong>140% do CDI</strong> (vs ~100% mercado)</li>
+    <li>Triangulação com <strong>Tirreno</strong> (fachada do próprio Vorcaro) vendeu carteiras fictícias ao <strong>BRB</strong> por R$ 12,2 bi</li>
+    <li>BRB tentou comprar 58% do Master em mar/2025 — BACEN bloqueou em nov/2025</li>
+    <li>Esquema-pirâmide: <strong>novos CDBs pagando os antigos</strong></li>
+    <li><strong>Operação Compliance Zero</strong> (PF) — 6 fases até maio/2026</li>
+    <li><strong>R$ 40 bi já desembolsados pelo FGC</strong> para cobrir depositantes</li>
+  </ul>
+  <p class="small">Fontes: Wikipedia, CNN Brasil, Agência Pública, CartaCapital, ICL Notícias</p>
+</section>
+
+<!-- SLIDE 4 — TESE -->
+<section class="slide">
+  <h1>A tese técnica</h1>
+  <blockquote>Reportagem trabalha com fonte humana sob anonimato.<br>OSINT trabalha com cadastro público sob auditoria.</blockquote>
+  <p>Cada CNPJ no Brasil deixa <strong>rastro estruturado</strong> em pelo menos 3 bases públicas:</p>
+  <ol>
+    <li><strong>Receita Federal</strong> — QSA, situação cadastral</li>
+    <li><strong>CVM</strong> — papéis em fundos (admin/gestor/custodiante), composição diária da carteira, sanções</li>
+    <li><strong>BACEN</strong> — instituições financeiras autorizadas, balanços</li>
+  </ol>
+  <p>Quem souber <strong>costurar essas bases</strong> consegue mapear um conglomerado inteiro sem ouvir ninguém.</p>
+</section>
+
+<!-- SLIDE 5 — PIPELINE -->
+<section class="slide">
+  <h1>O método em 5 etapas</h1>
+<pre>1. Coleta Receita ──► QSA das entidades-semente (BFS profundidade 2)
+                      via API Minha Receita
+
+2. Coleta CVM ───────► Cadastro de fundos (cad_fi.csv)
+                      Informe diário (PL, cotistas, resgate)
+                      Composição da carteira (CDA)
+                      Processo Sancionador (PAS)
+
+3. SQLite ──────────► Consolidação em 7 tabelas relacionais
+
+4. Análise pandas ──► Queries cruzadas; séries temporais;
+                      Random Forest Proximity para clusters
+
+5. Documentação ────► RELATORIO.md auditável + queries
+                      reproduzíveis + fontes hyperlinkadas</pre>
+</section>
+
+<!-- SLIDE 6 — DATASET -->
+<section class="slide">
+  <h1>O dataset</h1>
+  <table>
+    <thead>
+      <tr><th>Tabela</th><th style="text-align:right">Linhas</th><th>O que é</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>empresas</code></td><td style="text-align:right"><strong>100</strong></td><td>Master + gestoras parceiras + fundos CVM</td></tr>
+      <tr><td><code>pessoas</code></td><td style="text-align:right"><strong>104</strong></td><td>PFs do QSA</td></tr>
+      <tr><td><code>participacoes</code></td><td style="text-align:right"><strong>164</strong></td><td>sócio → empresa</td></tr>
+      <tr><td><code>papeis_fundo</code></td><td style="text-align:right"><strong>156</strong></td><td>admin/gestor/custodiante de 57 fundos</td></tr>
+      <tr><td><code>inf_diario</code></td><td style="text-align:right"><strong>517</strong></td><td>série diária dos 4 FMP-FGTS</td></tr>
+      <tr><td><code>cvm_processos</code></td><td style="text-align:right"><strong>543</strong></td><td>PAS-CVM histórico</td></tr>
+      <tr><td><code>cvm_acusados</code></td><td style="text-align:right"><strong>1.934</strong></td><td>acusados em PAS-CVM</td></tr>
+      <tr><td><code>carteira</code></td><td style="text-align:right"><strong>36</strong></td><td>CDA de 3 meses estratégicos</td></tr>
+    </tbody>
+  </table>
+  <p><strong>Reproduzível:</strong> qualquer pessoa com Python roda os scripts e chega no mesmo dataset.</p>
+</section>
+
+<!-- SLIDE 7 — ACHADO 1 KATCH -->
+<section class="slide bg-red">
+  <span class="badge">ACHADO 1</span>
+  <h1>KATCH FIDC → UPPER FIDC</h1>
+  <p>A CVM publica, mês a mês, em quais ativos cada fundo investiu. E marca uma flag:</p>
+  <div class="big" style="font-size:3em">EMISSOR_LIGADO = "S"</div>
+  <p>Em 31/08/2025 e 30/11/2025, o <strong>KATCH FIDC</strong> (admin Master Corretora, gestor Harbour Capital) declarou:</p>
+  <table>
+    <tr><th>Data</th><th>Ativo</th><th>% do PL</th><th>Valor</th></tr>
+    <tr><td>31/08/2025</td><td>UPPER FIDC</td><td><strong>99,5%</strong></td><td>R$ 32.658.172</td></tr>
+    <tr><td>30/11/2025</td><td>UPPER FIDC</td><td><strong>99,5%</strong></td><td>R$ 31.002.312</td></tr>
+  </table>
+  <p><strong>KATCH</strong> está com situação <strong>CANCELADA</strong> na Receita. <strong>UPPER FIDC</strong> nem aparece no <code>cad_fi.csv</code> da CVM.</p>
+</section>
+
+<!-- SLIDE 8 — ACHADO 2 PONTE TRUSTEE -->
+<section class="slide bg-green">
+  <span class="badge">ACHADO 2</span>
+  <h1>A ponte Letsbank ↔ Trustee</h1>
+  <p><strong>Mauricio Antonio Quadrado</strong> assume a Presidência do Banco Letsbank em <strong>01/11/2024</strong>.</p>
+  <p>O que descobrimos puxando o QSA dele em todas as empresas:</p>
+<pre>Mauricio Antonio Quadrado é sócio de:
+
+  ▼ BANCO LETSBANK S/A         (grupo Master, liquidado)
+  ▼ TRUSTEE HOLDING FINANCEIRA S/A
+  ▼ TRUSTEE DTVM               (administra fundo do escopo Master)</pre>
+  <blockquote>A Trustee DTVM aparecia como <em>prestadora externa</em>. Não era. Tem ligação societária direta com o grupo via o Presidente do Letsbank.</blockquote>
+  <p><strong>Veículo candidato a continuidade administrativa</strong> dos fundos órfãos pós-liquidação.</p>
+</section>
+
+<!-- SLIDE 9 — ACHADO 3 CRONOGRAMA -->
+<section class="slide bg-yellow">
+  <span class="badge">ACHADO 3</span>
+  <h1>Cronograma de degradação</h1>
+<pre>2024-11-01  ★ Quadrado vira Presidente Letsbank
+            (3 diretores entram no mesmo dia)
+
+2025-04-10  ★ Resgate atípico R$ 254 mil no
+            MAXIMA FMP-FGTS Petrobras
+            (20% do PL num dia, 2 cotistas saem)
+
+2025-08-06  ★ Os 2 BANESTES FMP-FGTS PARAM
+            de reportar (mesmo dia, ambos)
+
+2025-08-12  ★ Vorcaro vira Presidente do
+            Banco Master de Investimento
+
+2025-09-29  ★ STERN FIP + Adriano Garzon
+            entram na Viking (holding pessoal)
+
+2025-11-18  ▼ LIQUIDAÇÃO BACEN</pre>
+  <p>A frequência <strong>acelera</strong> de mensal pra quinzenal nos últimos 3 meses.</p>
+</section>
+
+<!-- SLIDE 10 — ACHADO 4 STERN -->
+<section class="slide bg-blue">
+  <span class="badge">ACHADO 4</span>
+  <h1>STERN FIP — veículo recém-construído</h1>
+  <table>
+    <tr><td>CNPJ</td><td><code>56823324000184</code></td></tr>
+    <tr><td>Razão</td><td>STERN FIP Multiestratégia</td></tr>
+    <tr><td>Constituído</td><td><strong>15/08/2024</strong></td></tr>
+    <tr><td>Capital social</td><td>R$ 0 (próprio de FIP)</td></tr>
+    <tr><td>No <code>cad_fi.csv</code> CVM?</td><td><strong>NÃO</strong></td></tr>
+    <tr><td>Entra na Viking</td><td><strong>29/09/2025</strong></td></tr>
+    <tr><td>Dias antes da liquidação</td><td><strong>49</strong></td></tr>
+  </table>
+  <blockquote>Um FIP criado <strong>13 meses antes</strong> entra como sócio da holding pessoal do controlador <strong>menos de 7 semanas antes</strong> do BACEN liquidar o banco.</blockquote>
+  <p><strong>Hipótese a confirmar:</strong> veículo de blindagem patrimonial ou capital de socorro tardio.</p>
+</section>
+
+<!-- SLIDE 11 — RF PROXIMITY -->
+<section class="slide">
+  <h1>A camada matemática</h1>
+  <h2>Random Forest Proximity</h2>
+  <p>Problema clássico com 104 pessoas: <strong>como agrupar sem rótulo?</strong></p>
+  <p><strong>Solução de Breiman (2001)</strong> adaptada:</p>
+  <ol>
+    <li>Constrói matriz de features (presença em cada empresa + qualificações + ano)</li>
+    <li>Gera dataset sintético permutando cada coluna</li>
+    <li>Treina RandomForest pra distinguir real vs sintético</li>
+    <li>Para cada par, conta em quantas das 500 árvores caem na mesma folha</li>
+    <li>Resultado: matriz de proximidade <code>[0, 1]</code></li>
+  </ol>
+  <p><strong>Vorcaro fica em cluster próprio</strong> (proximidade ≤ 0.20 com qualquer outro). Diretores formam <strong>duplas e trios simétricos</strong>. Famílias (Piana, Lanzetti) e times de gestoras (Carmel, ID) emergem como blocos compactos.</p>
+</section>
+
+<!-- SLIDE 12 — LIMITES -->
+<section class="slide">
+  <h1>O que o método NÃO faz</h1>
+  <ul>
+    <li>Mapeia <strong>relação cadastral</strong>, não imputa culpa</li>
+    <li>Trabalha com <strong>snapshot</strong>, não histórico do QSA</li>
+    <li>CPFs vêm <strong>mascarados</strong> — risco de homônimo</li>
+    <li>Falta a camada de <strong>propriedade acionária</strong> (BACEN IF.data pendente)</li>
+    <li>Cobertura de <strong>fundos pelo CDA</strong> parcial (3 meses dos 24 possíveis)</li>
+    <li><strong>Não substitui reportagem</strong>. Funciona como dossiê estruturado pro jornalista que vai checar.</li>
+  </ul>
+  <blockquote>Quem te questionar tecnicamente vai ter que apontar onde o método quebra; quem te questionar moralmente esbarra no fato de que os dados estão abertos pra qualquer um repetir o exercício.</blockquote>
+</section>
+
+<!-- SLIDE 13 — PRÓXIMOS PASSOS -->
+<section class="slide">
+  <h1>Próxima rodada</h1>
+  <table>
+    <tr><th>Frente</th><th>Custo</th><th>Ganho esperado</th></tr>
+    <tr><td><strong>Tirreno</strong> — achar CNPJ e puxar QSA</td><td>5 min</td><td>Fecha tríade Master–Tirreno–BRB</td></tr>
+    <tr><td><strong>BACEN IF.data</strong></td><td>1-2h</td><td>Composição acionária dos bancos</td></tr>
+    <tr><td><strong>Portal Transparência</strong> (CEIS/CNEP)</td><td>30 min</td><td>Sanções administrativas</td></tr>
+    <tr><td><strong>CDA expandido</strong> — 24 meses</td><td>30 min</td><td>Histórico completo emissor ligado</td></tr>
+    <tr><td><strong>Fundos órfãos</strong> pós-liquidação</td><td>1h</td><td>Quem assumiu admin dos 57 fundos</td></tr>
+    <tr><td><strong>Offshore</strong> (OpenCorporates, ICIJ)</td><td>2h</td><td>Estruturas internacionais</td></tr>
+  </table>
+</section>
+
+<!-- SLIDE 14 — REPO -->
+<section class="slide">
+  <h1>Repositório aberto</h1>
+  <div class="center">
+    <h2 style="color:#FFD700;font-family:monospace">github.com/lyMartins/banco-master-osint</h2>
+    <br>
+<pre>17 scripts Python    │  ~2.500 linhas comentadas
+2 notebooks Jupyter  │  104 pessoas mapeadas
+1 SQLite             │  7 tabelas relacionais
+3 markdowns          │  documentação completa
+17 fontes citadas    │  jornalismo + dados oficiais</pre>
+    <br>
+    <p>Rodável em <strong>Windows · Arch Linux · Parrot OS</strong></p>
+    <p>Reproduzível em &lt; 1 hora com <code>pip install -r requirements.txt</code></p>
+  </div>
+</section>
+
+<!-- SLIDE 15 — UMA FRASE -->
+<section class="slide lead">
+  <div class="center">
+    <h2 style="color:#FFD700">Dado público estruturado</h2>
+    <h2>não substitui reportagem,</h2>
+    <h2 style="color:#FFD700">mas dá ao repórter um dossiê auditável</h2>
+    <h2>que o boato nunca dá.</h2>
+  </div>
+</section>
+
+<!-- SLIDE 16 — FINAL -->
+<section class="slide lead">
+  <div class="center">
+    <h1>Obrigado</h1>
+    <br>
+    <h2>Banco Master OSINT</h2>
+    <p style="font-size:1.4em;color:#cccccc"><em>método aberto, dados públicos, achados auditáveis</em></p>
+    <br><br>
+    <p class="small">Pesquisa educacional e jornalística sobre dados públicos.<br>Mapeia relação cadastral, não imputa culpa.</p>
+  </div>
+</section>
+
+<nav class="controls">
+  <button class="arrow" onclick="prev()" aria-label="anterior">‹</button>
+  <span class="counter" id="counter">1 / 16</span>
+  <button class="arrow" onclick="next()" aria-label="próximo">›</button>
+</nav>
+
+<div class="hint">← → setas · F para tela cheia · ESC sai</div>
+
+<script>
+  const slides = document.querySelectorAll('.slide');
+  const counter = document.getElementById('counter');
+  const progress = document.getElementById('progress');
+  let current = 0;
+
+  function show(i) {
+    current = Math.max(0, Math.min(slides.length - 1, i));
+    slides.forEach((s, idx) => s.classList.toggle('active', idx === current));
+    counter.textContent = (current + 1) + ' / ' + slides.length;
+    progress.style.width = ((current + 1) / slides.length * 100) + '%';
+    location.hash = '#' + (current + 1);
+  }
+
+  function next() { show(current + 1); }
+  function prev() { show(current - 1); }
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === ' ') { next(); e.preventDefault(); }
+    else if (e.key === 'ArrowLeft' || e.key === 'PageUp') { prev(); e.preventDefault(); }
+    else if (e.key === 'Home') { show(0); }
+    else if (e.key === 'End') { show(slides.length - 1); }
+    else if (e.key === 'f' || e.key === 'F') {
+      if (!document.fullscreenElement) document.documentElement.requestFullscreen();
+      else document.exitFullscreen();
+    }
+  });
+
+  document.body.addEventListener('click', (e) => {
+    if (e.target.closest('.controls') || e.target.closest('.arrow')) return;
+    next();
+  });
+
+  // suporte a hash inicial (ex.: pitch.html#7)
+  if (location.hash) {
+    const n = parseInt(location.hash.slice(1));
+    if (!isNaN(n)) show(n - 1);
+  } else {
+    show(0);
+  }
+</script>
+
+</body>
+</html>

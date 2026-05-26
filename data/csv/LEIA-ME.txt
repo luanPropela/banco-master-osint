@@ -1,0 +1,25 @@
+DATASETS CSV - banco-master-osint
+==================================
+
+Cada CSV usa encoding UTF-8 com BOM (utf-8-sig).
+Abre direto no Excel, LibreOffice, Google Sheets, pandas.
+
+TABELAS BRUTAS (espelho do master.db):
+  empresas.csv         - 100 empresas (CNPJ, razao, UF, situacao)
+  pessoas.csv          - 104 pessoas fisicas (id, nome, faixa etaria)
+  participacoes.csv    - 164 ligacoes socio->empresa com IDs
+  papeis_fundo.csv     - 156 papeis CVM (admin/gestor/custodiante)
+  inf_diario.csv       - 517 dias dos 4 FMP-FGTS
+  carteira.csv         - composicao da carteira (CDA)
+  cvm_processos.csv    - 543 processos sancionadores CVM
+  cvm_acusados.csv     - 1934 acusados em PAS-CVM
+
+VIEWS LEGIVEIS (com nomes ao inves de IDs):
+  view_participacoes.csv             - quem-cargo-empresa-data
+  view_ranking_pessoas.csv           - top pessoas por num. empresas
+  view_papeis_fundo.csv              - fundo-papel-prestador
+  view_carteira_emissor_ligado.csv   - fundo-emissor-valor-flag ligado
+  view_resgates_atipicos.csv         - dias com resgate >= R$ 10 mil
+  view_acusados_master.csv           - matches do nosso QSA com PAS-CVM
+
+Para regenerar tudo: python exportar_csv.py

@@ -70,12 +70,26 @@ conseguimos confirmar que esses créditos existem de verdade".
 
 ## As duas ressalvas honestas
 
-1. **MKS Soluções como cotista — não confirmado em fonte pública.** O informe mensal mostra os 2 cotistas
-   classificados como **fundos** (1 "cota FIDC" = Anna + 1 "outro FI"), e a DF não nomeia a MKS. A matéria
-   afirma que a MKS é cotista direta; isso pode vir de fonte de inquérito/CVM restrita, ou a MKS pode
-   participar via um fundo-veículo. Fica como o único ponto a fechar (provável via CVMWeb/processo).
+1. **MKS Soluções como cotista — o nome do cotista NÃO é público.** Esgotei as fontes públicas: o informe
+   mensal dá só **quantidade e tipo** (2 cotistas, classificados como fundos: 1 "cota FIDC" = Anna + 1 "outro
+   FI"); a DF auditada **não nomeia** cotistas; e as **3 atas de assembleia** (24/03/2025, 04/10/2024,
+   19/08/2024, lidas no FNET via navegador) referem-se ao **"único Cotista do Fundo" sem jamais nomeá-lo** — a
+   *Lista de Presença de Cotista*, onde o nome apareceria, **não é anexada aos PDFs públicos** e o cotista não
+   assina a ata. Conclusão: a afirmação "MKS é cotista" da Folha vem de **fonte de inquérito / base restrita da
+   CVM**, não reconstruível por dado público. (Nuance: a ata de 03/2025 fala em *único* cotista enquanto o
+   informe contava 2 — diferença de recorte por classe/série; ambos sem nome.)
 2. **Lormont R$ 597 mi vs R$ 553 mi:** soma dos valores de aquisição das 6 CCBs (R$ 597 mi) vs. o valor
    "mapeado no fundo" pela Folha (R$ 553 mi) — diferença esperada por amortização/provisão/data-base.
+
+## Bônus — arestas antes "manuais" agora confirmadas em documento público
+
+A ata de assembleia (FNET) confirma a estrutura de gestão que o grafo só tinha por "consulta manual CVMWeb":
+
+- **Administrador:** Reag Trust DTVM S.A. = **CBSF DTVM**, CNPJ **34.829.992/0001-86** ✓
+- **Gestor:** a gestão passou para **Reag Trust Administradora de Recursos Ltda.**, CNPJ **23.863.529/0001-34**
+  = a **"CBSF Trust Administradora de Recursos"** do grafo ✓ (a partir de 24/03/2025; gestora anterior:
+  Reag Jus Gestão de Ativos Judiciais Ltda., 46.356.742/0001-55).
+- Reforça o nó **Reag** como o grupo por trás da administração/gestão do SDG II (Reag → CBSF rebranding).
 
 ## Como reproduzir
 

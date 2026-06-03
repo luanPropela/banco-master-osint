@@ -1,0 +1,15 @@
+# Ambiente isolado da investigação de reconstrução da fraude (branch analise-reconstrucao-claude).
+# Criar:   conda env create -f analise/environment.yml
+# Usar:    conda run -n master-osint python <script>
+#   (ou)   conda activate master-osint
+name: master-osint
+channels:
+  - conda-forge
+dependencies:
+  - python=3.12
+  - pandas
+  - requests
+  - openpyxl        # ler o dados_grafo_banco_master.xlsx do Túlio
+  - beautifulsoup4  # parse de índices de diretório e HTML CVM
+  - lxml
+  - pip

@@ -1,0 +1,12 @@
+﻿afirmacao_materia,valor_citado,status,valor_reconstruido,fonte
+Tamanho do fundo (ativo),"R$ 5,4 bi",EXATO,"R$ 5,455 bi (ativo, dez/2025)",Informe Mensal CVM
+Nº de cotistas,2,EXATO,2 (jan/2025–jan/2026),Informe Mensal CVM
+Cotista = Anna (Hans via Anna),—,CONFIRMADO,Anna integraliza cotas 30/09/2024,DF id963178
+Cotista = MKS Soluções,—,NAO CONFIRMADO,"2o cotista classificado como FUNDO, MKS não nomeada",Informe/DF
+Créditos podres absorvidos,"R$ 3,6 bi",COMPATIVEL,"Dir.cred. R$ 3,36 bi (dez/25) / R$ 6,53 bi (DF jan/24)",Informe+DF
+Direto do Master,">= R$ 1,1 bi",EXATO,R$ 1.129 bi (2 cessões 19/12/24); total Master R$ 1.232 bi,DF id963178
+Lormont (total no fundo),~R$ 553 mi,COMPATIVEL,R$ 597 mi (6 CCBs),DF id963178
+Lormont cedido pelo Master,R$ 102 mi,EXATO,"R$ 102,438 mi (CCB, 27/02/2024)",DF id963178
+Debênture Banvox,R$ 380 mi,EXATO,"R$ 380,346 mi adquirido (emissão R$ 400 mi)",DF id963178
+Super Empreendimentos,R$ 22 mi,EXATO,"R$ 22,012 mi (cessão 06/03/2023)",DF id963178
+Indício de fraude (lastro),implícito,CONFIRMADO,ABSTENÇÃO de opinião; 62% dos dir.cred. sem lastro,DF id963178 (parecer)

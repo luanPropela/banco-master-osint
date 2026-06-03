@@ -10,7 +10,12 @@ arquivada aqui, não até um link que pode sair do ar ou mudar.
 |---|---|---|
 | `ICL_master-usou-fundo-54bi_2026-05-28.pdf` | Folhapress via ICL Notícias, 26/05/2026 | **Matéria-âncora** do fundo SDG II — ground truth do grafo de fraude |
 | `ICL_master-usou-fundo-54bi_2026-05-28.md` | idem | Proveniência + transcrição integral + mapeamento aresta↔trecho |
+| `CVM-FNET_SDG-II_DemonstracoesFinanceiras_2024_id963178.pdf` | DF auditada SDG II (FNET id 963178) | **Documento que materializa a fraude** — carteira nominal + abstenção de opinião |
+| `CVM-FNET_SDG-II_DemonstracoesFinanceiras_2024_id963178.md` | idem | Proveniência + trechos-chave + reprodução via API FNET |
 | `*.pdf.sha256` | — | Hash de integridade dos PDFs |
+
+> A reconstrução que usa estas fontes está em `analise/RECONSTRUCAO_SDG2.md` (10 de 11 afirmações
+> da matéria reproduzidas a partir de dado público da CVM).
 
 ### Verificar integridade de todos os PDFs
 

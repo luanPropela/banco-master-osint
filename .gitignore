@@ -4,6 +4,8 @@ data/*.db
 data/*.png
 data/cvm_diario/
 data/cvm_carteira/
+data/cvm_fidc_mensal/
+data/fnet_docs/
 data/*.zip
 *.html
 !pitch.html

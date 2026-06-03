@@ -27,12 +27,28 @@ def consultar_cnpj(cnpj: str) -> dict | None:
         print(f"[COLETA] Falha de rede em {cnpj_limpo}: {erro}")
     return None
 
+def _salvar_incremental(cache: Path, visitados: dict[str, dict]) -> None:
+    cache.parent.mkdir(parents=True, exist_ok=True)
+    tmp = cache.with_suffix(".json.tmp")
+    with tmp.open("w", encoding="utf-8") as arquivo:
+        json.dump(visitados, arquivo, ensure_ascii=False, indent=2)
+    tmp.replace(cache)
+
 def coletar(
     seeds: dict[str, str],
     max_depth: int = MAX_DEPTH,
     delay: float = DELAY_SEGUNDOS,
+    cache_path: str | Path = CACHE_PATH,
 ) -> dict[str, dict]:
+    cache = Path(cache_path)
     visitados: dict[str, dict] = {}
+    if cache.exists():
+        try:
+            with cache.open(encoding="utf-8") as arquivo:
+                visitados = json.load(arquivo)
+            print(f"[COLETA] retomando de cache parcial: {len(visitados)} CNPJs já coletados")
+        except Exception:
+            visitados = {}
 
     fila: deque[tuple[str, int]] = deque((cnpj, 0) for cnpj in seeds.keys())
 
@@ -50,6 +66,7 @@ def coletar(
             continue
 
         visitados[cnpj] = dados
+        _salvar_incremental(cache, visitados)
         time.sleep(delay)
 
         if depth < max_depth:
@@ -70,12 +87,8 @@ def carregar_ou_coletar(forcar: bool = False) -> dict[str, dict]:
         with cache.open(encoding="utf-8") as arquivo:
             return json.load(arquivo)
 
-    print("[COLETA] cache ausente ou forçado — coletando da API")
-    dados = coletar(SEEDS)
-
-    cache.parent.mkdir(parents=True, exist_ok=True)
-    with cache.open("w", encoding="utf-8") as arquivo:
-        json.dump(dados, arquivo, ensure_ascii=False, indent=2)
+    print("[COLETA] cache ausente ou forçado — coletando da API (com retomada automática)")
+    dados = coletar(SEEDS, cache_path=cache)
 
     print(f"[COLETA] {len(dados)} CNPJs salvos em {cache}")
     return dados

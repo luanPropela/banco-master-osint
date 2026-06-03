@@ -48,18 +48,55 @@ SEEDS_FRAUDE_ICL: dict[str, str] = {
     "11519788000163": "Pires Fomento Mercantil Ltda (inativa)",
 }
 
-SEEDS: dict[str, str] = {**SEEDS_MASTER, **SEEDS_EXPANSAO, **SEEDS_FRAUDE_ICL}
+SEEDS_NOVA_ONDA: dict[str, str] = {
+    "03066219000181": "RioPrevidência (autarquia RJ, R$ 3,69 bi → Master)",
+    "61024352000171": "Banco Voiter S.A. / Banco Pleno (Augusto Lima)",
+    "02377759000113": "Aster Petróleo LTDA. (PCC Carbono Oculto)",
+    "21228180000133": "HD Petróleo (rede postos PI, Aster)",
+}
+
+SEEDS_CVMWEB: dict[str, str] = {
+    "46909301000133": "SDG II FIDC NP (CBSF DTVM administra, gestor CBSF Trust)",
+    "34829992000186": "CBSF DTVM (ex-Reag Trust) — administradora do SDG II",
+    "23863529000134": "CBSF Trust Administradora de Recursos (gestor SDG II)",
+    "32088041000178": "Hans 95 FI Multimercado e Investimento Exterior (Crédito Privado)",
+    "53273475000118": "Anna FIDC NP",
+    "42584801000191": "Maranta FI Multimercado Crédito Privado",
+    "34081900000122": "Gold Style FIDC NP (R$ 1 bi de PCC)",
+    "53311600000137": "Termópilas FIP Multiestratégia (acionista Super Empreend.)",
+    "58807049000130": "Abbiamo FIP Multiestratégia (ex-Alucard, controla 6 empresas)",
+}
+
+SEEDS: dict[str, str] = {
+    **SEEDS_MASTER,
+    **SEEDS_EXPANSAO,
+    **SEEDS_FRAUDE_ICL,
+    **SEEDS_NOVA_ONDA,
+    **SEEDS_CVMWEB,
+}
 
 SEEDS_FIDC: dict[str, str] = {}
 
-CNPJS_A_BUSCAR: dict[str, str] = {
-    "?": "SDG II FIDC (R$ 5,4 bi)",
-    "?": "Hans 95 FIDC (Reag, Carbono Oculto)",
-    "?": "Anna FIDC",
-    "?": "Termópilas FIDC (Reag, sócio Super Empreendimentos)",
-    "?": "MKS Soluções Integradas (cotista SDG II)",
-    "?": "NGV SPE (debêntures no Lancia!)",
-}
+CNPJS_A_BUSCAR: list[str] = [
+    "SDG II FIDC (R$ 5,4 bi)",
+    "Hans 95 FIDC (Reag, Carbono Oculto)",
+    "Anna FIDC",
+    "Termópilas FIDC (Reag, sócio Super Empreendimentos)",
+    "MKS Soluções Integradas (cotista SDG II)",
+    "NGV SPE (debêntures no Lancia!)",
+    "Mídias Promotora (Ricardo Siqueira / Gilson Vasconcelos)",
+    "CBSF DTVM (ex-Reag Trust)",
+    "Reag Investimentos (holding)",
+    "FIDC Gold Style (Reag)",
+    "FIDC Maranta (97% Lormont/Tanure)",
+    "Alucard/Abbiamo FIP Multi (Reag)",
+    "BK Bank (PCC)",
+    "Inovanti Instituição de Pagamento (PCC)",
+    "Copape Produtos de Petróleo (PCC)",
+    "Tirreno (empresa fachada Vorcaro)",
+    "Allora, Lenore, Milano, Stanza, Domani, Chesapeake (Alucard FIP)",
+    "Trump Hotel Barra (antigo)",
+]
 
 MAX_DEPTH: int = 2
 DELAY_SEGUNDOS: float = 0.8

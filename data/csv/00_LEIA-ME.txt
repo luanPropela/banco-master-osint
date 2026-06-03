@@ -1,0 +1,28 @@
+DATASETS CSV - banco-master-osint
+==================================
+
+Cada CSV usa encoding UTF-8 com BOM (utf-8-sig).
+Abre direto no Excel, LibreOffice, Google Sheets ou pandas.
+
+TABELAS BRUTAS (espelho do master.db):
+  01_empresas.csv                            - 100+ empresas do perimetro
+  02_pessoas.csv                             - 100+ pessoas fisicas do QSA
+  03_participacoes_socio_empresa.csv         - quem e socio de qual empresa, com data e cargo
+  04_papeis_fundo_cvm.csv                    - admin/gestor/custodiante de 57 fundos
+  05_serie_diaria_fmp_fgts.csv               - 4 FMP-FGTS dia a dia (PL, cotistas, resgate)
+  06_composicao_carteira_cvm_cda.csv         - em quais ativos os fundos investiram
+  07_cvm_processos_sancionadores.csv         - processos administrativos sancionadores CVM
+  08_cvm_acusados_em_processos.csv           - nomes acusados em cada processo
+  09_grafo_fraude_nodes.csv                  - entidades da teia de fraude
+  10_grafo_fraude_edges.csv                  - relacoes da teia de fraude
+
+VIEWS LEGIVEIS (com nomes ao inves de IDs):
+  view_socio_empresa_data_cargo.csv          - quem-cargo-empresa-data, tudo legivel
+  view_ranking_pessoas_por_num_empresas.csv  - top pessoas por num. empresas
+  view_papeis_fundo_com_nomes.csv            - fundo-papel-prestador
+  view_carteira_emissor_ligado_KATCH_UPPER.csv  - achado inedito KATCH->UPPER
+  view_resgates_atipicos_fmp_fgts.csv        - resgates >= R$ 10 mil
+  view_grafo_fraude_legivel.csv              - grafo com labels (sem IDs)
+  view_pessoas_master_que_sao_acusadas_cvm.csv  - matches QSA Master x PAS-CVM
+
+REGERAR TUDO:  python exportar_csv.py

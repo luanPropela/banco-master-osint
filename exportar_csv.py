@@ -8,12 +8,28 @@ SAIDA = Path("data/csv")
 ENCODING = "utf-8-sig"
 
 
-def export_tabela(con: sqlite3.Connection, nome: str, sql: str | None = None) -> Path:
-    df = pd.read_sql(sql or f"SELECT * FROM {nome}", con)
-    arq = SAIDA / f"{nome}.csv"
+def export_tabela(con: sqlite3.Connection, arq_nome: str, sql: str) -> Path:
+    df = pd.read_sql(sql, con)
+    arq = SAIDA / arq_nome
     df.to_csv(arq, index=False, encoding=ENCODING)
-    print(f"  {nome:30}  {len(df):>6} linhas  {arq.stat().st_size/1024:>7.1f} KB")
+    print(f"  {arq_nome:55}  {len(df):>6} linhas  {arq.stat().st_size/1024:>7.1f} KB")
     return arq
+
+
+def limpar_antigos():
+    legados = [
+        "empresas.csv", "pessoas.csv", "participacoes.csv", "papeis_fundo.csv",
+        "inf_diario.csv", "carteira.csv", "cvm_processos.csv", "cvm_acusados.csv",
+        "fraude_nodes.csv", "fraude_edges.csv",
+        "view_participacoes.csv", "view_ranking_pessoas.csv",
+        "view_papeis_fundo.csv", "view_carteira_emissor_ligado.csv",
+        "view_resgates_atipicos.csv", "view_fraude_grafo.csv",
+        "view_acusados_master.csv",
+    ]
+    for nome in legados:
+        p = SAIDA / nome
+        if p.exists():
+            p.unlink()
 
 
 def main():
@@ -21,32 +37,62 @@ def main():
         raise SystemExit(f"master.db nao encontrado em {DB.resolve()}. Rode 'python -m db' antes.")
 
     SAIDA.mkdir(parents=True, exist_ok=True)
+    limpar_antigos()
     con = sqlite3.connect(DB)
 
-    print("\nTABELAS BRUTAS\n" + "-" * 60)
-    tabelas_brutas = [
-        "empresas", "pessoas", "participacoes", "papeis_fundo",
-        "inf_diario", "carteira", "cvm_processos", "cvm_acusados",
-        "fraude_nodes", "fraude_edges",
-    ]
-    for t in tabelas_brutas:
-        try:
-            export_tabela(con, t)
-        except pd.io.sql.DatabaseError:
-            print(f"  {t:30}  (nao existe — pule a coleta correspondente)")
+    print("\nTABELAS BRUTAS (espelho 1:1 do master.db)\n" + "-" * 70)
 
-    print("\nVIEWS LEGIVEIS (com nomes em vez de IDs)\n" + "-" * 60)
+    export_tabela(con, "01_empresas.csv",
+                  "SELECT * FROM empresas ORDER BY razao_social")
 
-    export_tabela(con, "view_participacoes", """
+    export_tabela(con, "02_pessoas.csv",
+                  "SELECT * FROM pessoas ORDER BY nome")
+
+    export_tabela(con, "03_participacoes_socio_empresa.csv",
+                  "SELECT * FROM participacoes ORDER BY data_entrada")
+
+    export_tabela(con, "04_papeis_fundo_cvm.csv",
+                  "SELECT * FROM papeis_fundo ORDER BY fundo_cnpj, papel")
+
+    try:
+        export_tabela(con, "05_serie_diaria_fmp_fgts.csv",
+                      "SELECT * FROM inf_diario ORDER BY fundo_cnpj, data")
+    except pd.io.sql.DatabaseError:
+        print("  05_serie_diaria_fmp_fgts.csv                            (sem dados)")
+
+    try:
+        export_tabela(con, "06_composicao_carteira_cvm_cda.csv",
+                      "SELECT * FROM carteira ORDER BY data_competencia, fundo_cnpj")
+    except pd.io.sql.DatabaseError:
+        print("  06_composicao_carteira_cvm_cda.csv                       (sem dados)")
+
+    try:
+        export_tabela(con, "07_cvm_processos_sancionadores.csv",
+                      "SELECT * FROM cvm_processos ORDER BY data_abertura DESC")
+        export_tabela(con, "08_cvm_acusados_em_processos.csv",
+                      "SELECT * FROM cvm_acusados ORDER BY data_situacao DESC")
+    except pd.io.sql.DatabaseError:
+        print("  07_cvm_processos / 08_cvm_acusados (sem dados)")
+
+    try:
+        export_tabela(con, "09_grafo_fraude_nodes.csv",
+                      "SELECT * FROM fraude_nodes ORDER BY tipo, label")
+        export_tabela(con, "10_grafo_fraude_edges.csv",
+                      "SELECT * FROM fraude_edges ORDER BY source")
+    except pd.io.sql.DatabaseError:
+        print("  09 / 10_grafo_fraude (sem dados — rode importar_grafo_fraude.py)")
+
+    print("\nVIEWS LEGIVEIS (com nomes em vez de IDs)\n" + "-" * 70)
+
+    export_tabela(con, "view_socio_empresa_data_cargo.csv", """
         SELECT
-            p.data_entrada                AS data_entrada,
-            COALESCE(s.nome, soc.razao_social) AS socio,
+            p.data_entrada                       AS data_entrada,
+            COALESCE(s.nome, soc.razao_social)   AS socio,
             CASE WHEN p.socio_pessoa_id > 0 THEN 'PF' ELSE 'PJ' END AS tipo_socio,
-            p.qualificacao                AS cargo,
-            e.razao_social                AS empresa,
-            e.cnpj                        AS cnpj_empresa,
-            e.uf                          AS uf_empresa,
-            p.fonte                       AS fonte
+            p.qualificacao                       AS cargo,
+            e.razao_social                       AS empresa,
+            e.cnpj                               AS cnpj_empresa,
+            e.uf                                 AS uf_empresa
         FROM participacoes p
         JOIN empresas e ON e.cnpj = p.empresa_cnpj
         LEFT JOIN pessoas s ON s.id = p.socio_pessoa_id
@@ -54,7 +100,7 @@ def main():
         ORDER BY p.data_entrada
     """)
 
-    export_tabela(con, "view_ranking_pessoas", """
+    export_tabela(con, "view_ranking_pessoas_por_num_empresas.csv", """
         SELECT
             s.nome                                       AS nome,
             COUNT(DISTINCT p.empresa_cnpj)               AS n_empresas,
@@ -70,7 +116,7 @@ def main():
         ORDER BY n_empresas DESC, s.nome
     """)
 
-    export_tabela(con, "view_papeis_fundo", """
+    export_tabela(con, "view_papeis_fundo_com_nomes.csv", """
         SELECT
             e.razao_social   AS fundo,
             e.cnpj           AS cnpj_fundo,
@@ -82,7 +128,7 @@ def main():
         ORDER BY e.razao_social, pf.papel
     """)
 
-    export_tabela(con, "view_carteira_emissor_ligado", """
+    export_tabela(con, "view_carteira_emissor_ligado_KATCH_UPPER.csv", """
         SELECT
             c.data_competencia,
             e.razao_social    AS fundo,
@@ -100,7 +146,7 @@ def main():
     """)
 
     try:
-        export_tabela(con, "view_resgates_atipicos", """
+        export_tabela(con, "view_resgates_atipicos_fmp_fgts.csv", """
             SELECT
                 i.data,
                 e.razao_social     AS fundo,
@@ -116,10 +162,10 @@ def main():
             ORDER BY i.resgate_dia DESC
         """)
     except pd.io.sql.DatabaseError:
-        print("  view_resgates_atipicos      (inf_diario nao populada)")
+        print("  view_resgates_atipicos_fmp_fgts.csv  (inf_diario nao populada)")
 
     try:
-        export_tabela(con, "view_fraude_grafo", """
+        export_tabela(con, "view_grafo_fraude_legivel.csv", """
             SELECT
                 e.source                 AS de,
                 ns.label                 AS de_label,
@@ -136,10 +182,10 @@ def main():
             ORDER BY e.source
         """)
     except pd.io.sql.DatabaseError:
-        print("  view_fraude_grafo           (fraude_nodes/edges nao populadas)")
+        print("  view_grafo_fraude_legivel.csv   (fraude tables vazias)")
 
     try:
-        export_tabela(con, "view_acusados_master", """
+        export_tabela(con, "view_pessoas_master_que_sao_acusadas_cvm.csv", """
             SELECT
                 s.nome           AS pessoa_no_dataset_master,
                 a.nup            AS processo_nup,
@@ -154,31 +200,34 @@ def main():
             ORDER BY a.data_situacao DESC
         """)
     except pd.io.sql.DatabaseError:
-        print("  view_acusados_master        (cvm_acusados nao populada)")
+        print("  view_pessoas_master_que_sao_acusadas_cvm.csv  (sem dados)")
 
-    leiame = SAIDA / "LEIA-ME.txt"
+    leiame = SAIDA / "00_LEIA-ME.txt"
     leiame.write_text(
         "DATASETS CSV - banco-master-osint\n"
         "==================================\n\n"
         "Cada CSV usa encoding UTF-8 com BOM (utf-8-sig).\n"
-        "Abre direto no Excel, LibreOffice, Google Sheets, pandas.\n\n"
+        "Abre direto no Excel, LibreOffice, Google Sheets ou pandas.\n\n"
         "TABELAS BRUTAS (espelho do master.db):\n"
-        "  empresas.csv         - 100 empresas (CNPJ, razao, UF, situacao)\n"
-        "  pessoas.csv          - 104 pessoas fisicas (id, nome, faixa etaria)\n"
-        "  participacoes.csv    - 164 ligacoes socio->empresa com IDs\n"
-        "  papeis_fundo.csv     - 156 papeis CVM (admin/gestor/custodiante)\n"
-        "  inf_diario.csv       - 517 dias dos 4 FMP-FGTS\n"
-        "  carteira.csv         - composicao da carteira (CDA)\n"
-        "  cvm_processos.csv    - 543 processos sancionadores CVM\n"
-        "  cvm_acusados.csv     - 1934 acusados em PAS-CVM\n\n"
+        "  01_empresas.csv                            - 100+ empresas do perimetro\n"
+        "  02_pessoas.csv                             - 100+ pessoas fisicas do QSA\n"
+        "  03_participacoes_socio_empresa.csv         - quem e socio de qual empresa, com data e cargo\n"
+        "  04_papeis_fundo_cvm.csv                    - admin/gestor/custodiante de 57 fundos\n"
+        "  05_serie_diaria_fmp_fgts.csv               - 4 FMP-FGTS dia a dia (PL, cotistas, resgate)\n"
+        "  06_composicao_carteira_cvm_cda.csv         - em quais ativos os fundos investiram\n"
+        "  07_cvm_processos_sancionadores.csv         - processos administrativos sancionadores CVM\n"
+        "  08_cvm_acusados_em_processos.csv           - nomes acusados em cada processo\n"
+        "  09_grafo_fraude_nodes.csv                  - entidades da teia de fraude\n"
+        "  10_grafo_fraude_edges.csv                  - relacoes da teia de fraude\n\n"
         "VIEWS LEGIVEIS (com nomes ao inves de IDs):\n"
-        "  view_participacoes.csv             - quem-cargo-empresa-data\n"
-        "  view_ranking_pessoas.csv           - top pessoas por num. empresas\n"
-        "  view_papeis_fundo.csv              - fundo-papel-prestador\n"
-        "  view_carteira_emissor_ligado.csv   - fundo-emissor-valor-flag ligado\n"
-        "  view_resgates_atipicos.csv         - dias com resgate >= R$ 10 mil\n"
-        "  view_acusados_master.csv           - matches do nosso QSA com PAS-CVM\n\n"
-        "Para regenerar tudo: python exportar_csv.py\n"
+        "  view_socio_empresa_data_cargo.csv          - quem-cargo-empresa-data, tudo legivel\n"
+        "  view_ranking_pessoas_por_num_empresas.csv  - top pessoas por num. empresas\n"
+        "  view_papeis_fundo_com_nomes.csv            - fundo-papel-prestador\n"
+        "  view_carteira_emissor_ligado_KATCH_UPPER.csv  - achado inedito KATCH->UPPER\n"
+        "  view_resgates_atipicos_fmp_fgts.csv        - resgates >= R$ 10 mil\n"
+        "  view_grafo_fraude_legivel.csv              - grafo com labels (sem IDs)\n"
+        "  view_pessoas_master_que_sao_acusadas_cvm.csv  - matches QSA Master x PAS-CVM\n\n"
+        "REGERAR TUDO:  python exportar_csv.py\n"
     , encoding="utf-8")
     print(f"\nResumo salvo em {leiame}")
 

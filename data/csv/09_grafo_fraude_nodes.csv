@@ -1,0 +1,54 @@
+﻿node_id,label,tipo,descricao,cnpj,fonte
+PLANNER,Planner Corretora,Corretora,Mauricio Quadrado foi sócio até 2022,,G1+CNN+ICL+Agência Brasil+Metropoles 27-28/05/2026 + Reag/CBSF 15/01/2026
+CBSF_DTVM,CBSF DTVM (ex-Reag Trust),DTVM,Liquidada 15/01/2026; alameda Gabriel Monteiro da Silva,34829992000186,G1+CNN+ICL+Agência Brasil+Metropoles 27-28/05/2026 + Reag/CBSF 15/01/2026
+TRUMP_HOTEL_BARRA,Antigo Trump Hotel Barra/RJ,Empresa,Vítima de fraude R$ 17 mi por Ricardo Siqueira,,G1+CNN+ICL+Agência Brasil+Metropoles 27-28/05/2026 + Reag/CBSF 15/01/2026
+ASTER_PETROLEO,Aster Petróleo LTDA.,Empresa,"Carbono Oculto PCC; R$ 759,5 mi para Gold Style; controla HD em PI",02377759000113,G1+CNN+ICL+Agência Brasil+Metropoles 27-28/05/2026 + Reag/CBSF 15/01/2026
+BANVOX,Banvox,Empresa,Empresa ex-Maurício Quadrado; emitiu R$ 380 milhões em debêntures.,38461854000148,ICL/Folha 2026-05-28
+COPAPE,Copape Produtos de Petróleo,Empresa,Fornece combustíveis para Aster; PCC,,G1+CNN+ICL+Agência Brasil+Metropoles 27-28/05/2026 + Reag/CBSF 15/01/2026
+DV_HOLDING,DV Holding,Empresa,Holding de Daniel Vorcaro que absorveu as debêntures da Banvox.,57445179000108,ICL/Folha 2026-05-28
+HD_PETROLEO,HD Petróleo (postos PI),Empresa,Rede de postos em Teresina/PI controlada pela Aster,21228180000133,G1+CNN+ICL+Agência Brasil+Metropoles 27-28/05/2026 + Reag/CBSF 15/01/2026
+LORMONT_PART,Lormont Participações,Empresa,Empresa ligada a Nelson Tanure; recebeu R$ 553 milhões mapeados no fundo.,34263138000103,ICL/Folha 2026-05-28
+MKS_SOLUCOES,MKS Soluções Integradas,Empresa,Uma das 36 empresas com empréstimos simulados; cotista do SDG II.,,ICL/Folha 2026-05-28
+MIDIAS_PROMOTORA,Mídias Promotora Ltda,Empresa,R$ 126 mi do Master 2022-2025; sócio aparente Gilson Vasconcelos (laranja),,G1+CNN+ICL+Agência Brasil+Metropoles 27-28/05/2026 + Reag/CBSF 15/01/2026
+NGV_SPE,NGV SPE,Empresa,Empresa ligada a Augusto Lima; emitiu R$ 30 mi em debêntures com prazos adiados.,,ICL/Folha 2026-05-28
+SUPER_EMPREENDIMENTOS,Super Empreendimentos,Empresa,"Braço financeiro de Daniel Vorcaro, dona da casa de Brasília.",31446245000170,ICL/Folha 2026-05-28
+TIRRENO,Tirreno (empresa-fachada),Empresa,"Fachada do Vorcaro; R$ 12,2 bi em carteiras fictícias para BRB",,G1+CNN+ICL+Agência Brasil+Metropoles 27-28/05/2026 + Reag/CBSF 15/01/2026
+BK_BANK,BK Bank (Instituição de Pagamento),Fintech/IP,Banco-sombra do PCC; R$ 9 bi 2020-2024; R$ 158 mi para Gold Style,,G1+CNN+ICL+Agência Brasil+Metropoles 27-28/05/2026 + Reag/CBSF 15/01/2026
+INOVANTI,Inovanti Instituição de Pagamento,Fintech/IP,Carbono Oculto; R$ 175 mi para Gold Style; R$ 778 mi totais movimentados,,G1+CNN+ICL+Agência Brasil+Metropoles 27-28/05/2026 + Reag/CBSF 15/01/2026
+FUNDO_ALUCARD,Alucard/Abbiamo FIP Multiestratégia,Fundo de Investimento,"Administrado por Reag; controla Allora, Lenore, Milano, Stanza, Domani, Chesapeake",58807049000130,G1+CNN+ICL+Agência Brasil+Metropoles 27-28/05/2026 + Reag/CBSF 15/01/2026
+FIDC_MARANTA,FIDC Maranta,Fundo de Investimento,"97% do portfólio em CCBs Lormont R$ 73,7 mi (Tanure)",42584801000191,G1+CNN+ICL+Agência Brasil+Metropoles 27-28/05/2026 + Reag/CBSF 15/01/2026
+FUNDO_ANNA,Fundo Anna,Fundo de Investimento,Um dos 6 fundos fraudulentos apontados pelo BC. Intermediário do Hans 95.,53273475000118,ICL/Folha 2026-05-28
+FIDC_GOLD_STYLE,Fundo Gold Style FIDC,Fundo de Investimento,"Administrado pela Reag; recebeu R$ 1 bi de empresas PCC (Aster, BK Bank, Inovanti)",34081900000122,G1+CNN+ICL+Agência Brasil+Metropoles 27-28/05/2026 + Reag/CBSF 15/01/2026
+FUNDO_HANS_95,Fundo Hans 95,Fundo de Investimento,Fundo central na teia de fraudes do Banco Master.,32088041000178,ICL/Folha 2026-05-28
+FUNDO_LANCIA,Fundo Lancia!,Fundo de Investimento,"FIDC da rede do Master, usado para reter dívidas da NGV SPE.",29786909000107,ICL/Folha 2026-05-28
+FUNDO_SDG_II,Fundo SDG II (FIDC),Fundo de Investimento,"Fundo ativo de R$ 5,4 bi que absorveu R$ 3,6 bi em créditos de má qualidade.",46909301000133,ICL/Folha 2026-05-28
+FUNDO_TERMOPILAS,Fundo Termópilas,Fundo de Investimento,Administrado por Reag; principal acionista da Super Empreendimentos,53311600000137,G1+CNN+ICL+Agência Brasil+Metropoles 27-28/05/2026 + Reag/CBSF 15/01/2026
+CBSF_TRUST_ADM,CBSF Trust Administradora de Recursos Ltda,Gestora,Gestor da carteira do SDG II FIDC (vinculada à CBSF/Reag),23863529000134,CVMWeb consulta manual 03/06/2026
+REAG_INVEST,Reag Investimentos,Gestora,Faria Lima; fundada 2012 por Mansur; ativos cresceram 14x (R$ 25 bi a R$ 341 bi 2020-2025),,G1+CNN+ICL+Agência Brasil+Metropoles 27-28/05/2026 + Reag/CBSF 15/01/2026
+FICTOR,Fictor Holding Financeira,Holding,Consórcio comprador frustrado do Master; sob investigação,,G1+CNN+ICL+Agência Brasil+Metropoles 27-28/05/2026 + Reag/CBSF 15/01/2026
+BANCO_MASTER,Banco Master,Instituição Financeira,"Centralizador das operações, captação de CDBs e originação de empréstimos.",33923798000100,ICL/Folha 2026-05-28
+BANCO_MAXIMA,Banco Máxima (precursor histórico),Instituição Financeira,Forma anterior do Banco Master S.A.,,G1+CNN+ICL+Agência Brasil+Metropoles 27-28/05/2026 + Reag/CBSF 15/01/2026
+BANCO_PLENO,Banco Pleno S.A.,Instituição Financeira,Ex-Voiter; controle Augusto Lima jul/2025; liquidado 18/02/2026,61024352000171,G1+CNN+ICL+Agência Brasil+Metropoles 27-28/05/2026 + Reag/CBSF 15/01/2026
+BANCO_VOITER,Banco Voiter S.A. (ex-Indusval),Instituição Financeira,Antigo nome de Banco Pleno; foi Indusval até 2020; integrou conglomerado Master em início 2024,61024352000171,G1+CNN+ICL+Agência Brasil+Metropoles 27-28/05/2026 + Reag/CBSF 15/01/2026
+BRB,Banco de Brasília,Instituição Financeira,Comprou R$ 12 bi em carteiras Master via Tirreno; venda do Master bloqueada BACEN 17/11/2025,,G1+CNN+ICL+Agência Brasil+Metropoles 27-28/05/2026 + Reag/CBSF 15/01/2026
+OP_CARBONO_OCULTO,Operação Carbono Oculto,Operação Policial,PF; investiga lavagem PCC no sistema financeiro; deflagrada 28/08/2025,,G1+CNN+ICL+Agência Brasil+Metropoles 27-28/05/2026 + Reag/CBSF 15/01/2026
+AUGUSTO_LIMA,Augusto Lima,Pessoa Física,Ex-sócio do Banco Master e ligado à NGV SPE.,,ICL/Folha 2026-05-28
+CLAUDIO_CASTRO,Cláudio Castro,Pessoa Física,Ex-governador RJ; encontros sincrônicos com aportes RioPrev → Master,,G1+CNN+ICL+Agência Brasil+Metropoles 27-28/05/2026 + Reag/CBSF 15/01/2026
+DANIEL_VORCARO,Daniel Vorcaro,Pessoa Física,"Ex-banqueiro, figura central envolvida nas fraudes estruturadas.",,ICL/Folha 2026-05-28
+DEIVIS_ANTUNES,Deivis Marcon Antunes,Pessoa Física,Ex-presidente RioPrev jul/2023 a jan/2026; preso 03/02/2026 (2ª fase Compliance Zero),,G1+CNN+ICL+Agência Brasil+Metropoles 27-28/05/2026 + Reag/CBSF 15/01/2026
+DIEGO_NASCIMENTO,Diego Peres da Costa Nascimento,Pessoa Física,Diretor responsável pela gestão do SDG II; CPF 111.681.947-33,,CVMWeb consulta manual 03/06/2026
+FABIANO_ZETTEL,Fabiano Zettel,Pessoa Física,Diretor Super Empreendimentos 2021-2024,,G1+CNN+ICL+Agência Brasil+Metropoles 27-28/05/2026 + Reag/CBSF 15/01/2026
+GILSON_VASCONCELOS,Gilson Bahia Vasconcelos,Pessoa Física,Sócio aparente (laranja) da Mídias Promotora,,G1+CNN+ICL+Agência Brasil+Metropoles 27-28/05/2026 + Reag/CBSF 15/01/2026
+JOAO_MANSUR,João Carlos Mansur,Pessoa Física,Fundador Reag (2012); alvo da Operação Carbono Oculto,,G1+CNN+ICL+Agência Brasil+Metropoles 27-28/05/2026 + Reag/CBSF 15/01/2026
+MARCOS_F_COSTA,Marcos Ferreira Costa,Pessoa Física,Diretor do SDG II FIDC; CPF parcial 296.447.968-29,,CVMWeb consulta manual 03/06/2026
+MAURICIO_QUADRADO,Maurício Quadrado,Pessoa Física,Ex-sócio do Banco Master e ex-proprietário da Banvox.,,ICL/Folha 2026-05-28
+ANDRE_MENDONCA,Min. André Mendonça,Pessoa Física,STF; autorizou 8ª fase Compliance Zero em 27/05/2026,,G1+CNN+ICL+Agência Brasil+Metropoles 27-28/05/2026 + Reag/CBSF 15/01/2026
+MOHAMAD_MOURAD,Mohamad Hussein Mourad,Pessoa Física,Aster e Copape; PCC,,G1+CNN+ICL+Agência Brasil+Metropoles 27-28/05/2026 + Reag/CBSF 15/01/2026
+NELSON_TANURE,Nelson Tanure,Pessoa Física,Empresário e investidor ligado à Lormont Participações.,,ICL/Folha 2026-05-28
+RICARDO_SIQUEIRA,Ricardo Siqueira Rodrigues,Pessoa Física,"Lobista, ex-delator Lava Jato, elo Castro-Vorcaro; dono Mídias Promotora",,G1+CNN+ICL+Agência Brasil+Metropoles 27-28/05/2026 + Reag/CBSF 15/01/2026
+BETO_LOCO,Roberto Augusto Leme da Silva (Beto Loco),Pessoa Física,Aster Petróleo; Carbono Oculto PCC,,G1+CNN+ICL+Agência Brasil+Metropoles 27-28/05/2026 + Reag/CBSF 15/01/2026
+RIOPREVIDENCIA,RioPrevidência,Órgão Público RPPS,"Autarquia RJ; 235k servidores; R$ 3,69 bi para Master",03066219000181,G1+CNN+ICL+Agência Brasil+Metropoles 27-28/05/2026 + Reag/CBSF 15/01/2026
+BANCO_CENTRAL,Banco Central (BC),Órgão Regulador,Órgão que investiga o esquema e identificou os fundos fraudulentos.,,ICL/Folha 2026-05-28
+CVM,CVM,Órgão Regulador,"Comissão de Valores Mobiliários, registra fundos e cotistas.",,ICL/Folha 2026-05-28
+POLICIA_FEDERAL,Polícia Federal,Órgão Regulador,Conduz Operação Compliance Zero (8 fases) e Carbono Oculto,,G1+CNN+ICL+Agência Brasil+Metropoles 27-28/05/2026 + Reag/CBSF 15/01/2026
+STF,Supremo Tribunal Federal,Órgão Regulador,Autoriza fases das operações (Min. André Mendonça relator),,G1+CNN+ICL+Agência Brasil+Metropoles 27-28/05/2026 + Reag/CBSF 15/01/2026

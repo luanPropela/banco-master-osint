@@ -33,9 +33,33 @@ SEEDS_EXPANSAO: dict[str, str] = {
     "61820817000109": "Banco Paulista S.A. (custodiante)",
 }
 
-SEEDS: dict[str, str] = {**SEEDS_MASTER, **SEEDS_EXPANSAO}
+SEEDS_FRAUDE_ICL: dict[str, str] = {
+    "29786909000107": "Lancia! FIDC (CVM)",
+    "57445179000108": "DV Holding Financeira S.A. (Vorcaro)",
+    "55757077000100": "Master Participações S.A. (Vorcaro)",
+    "55997450000192": "Master Serviços S.A. (Vorcaro)",
+    "50365044000193": "RDA Mineração S.A. (Vorcaro)",
+    "31446245000170": "Super Empreendimentos e Participações S.A. (casa Brasília)",
+    "34263138000103": "Lormont Participações S.A. (Nelson Tanure)",
+    "38461854000148": "Banvox Holding Financeira S.A. (ex-Quadrado)",
+    "02671743000119": "Banvox DTVM Ltda",
+    "10791605000100": "Gestacar Gestão de Negócios Ltda (inativa)",
+    "22921619000171": "Orion BH Desenvolvimento Imobiliário SPE Ltda (inativa)",
+    "11519788000163": "Pires Fomento Mercantil Ltda (inativa)",
+}
+
+SEEDS: dict[str, str] = {**SEEDS_MASTER, **SEEDS_EXPANSAO, **SEEDS_FRAUDE_ICL}
 
 SEEDS_FIDC: dict[str, str] = {}
+
+CNPJS_A_BUSCAR: dict[str, str] = {
+    "?": "SDG II FIDC (R$ 5,4 bi)",
+    "?": "Hans 95 FIDC (Reag, Carbono Oculto)",
+    "?": "Anna FIDC",
+    "?": "Termópilas FIDC (Reag, sócio Super Empreendimentos)",
+    "?": "MKS Soluções Integradas (cotista SDG II)",
+    "?": "NGV SPE (debêntures no Lancia!)",
+}
 
 MAX_DEPTH: int = 2
 DELAY_SEGUNDOS: float = 0.8

@@ -270,6 +270,58 @@ banco-master-osint/
     └── cvm_sancao.zip         PAS CVM
 ```
 
+### 6.4b Grafo da fraude — modelo Tulio (ICL/Folha 28/05/2026)
+
+Tabelas `fraude_nodes` e `fraude_edges` no `master.db` representam a teia de fraude descrita pela reportagem do ICL Notícias reproduzindo apuração da Folha (28/05/2026):
+
+```
+https://iclnoticias.com.br/master-usou-fundo-54-bi-para-esconder-dividas/
+```
+
+Resumo do esquema (cíclico):
+
+1. Banco Master capta via CDB
+2. Banco Master empresta para 36 empresas de fachada (MKS Soluções, Lormont, NGV SPE)
+3. Empresas aplicam em FIDCs estruturados (SDG II, Hans 95 via Anna, Lancia!)
+4. FIDC recompra os empréstimos do próprio Banco Master
+5. Risco de calote sai do balanço do banco, fica escondido no fundo
+
+O modelo tem 17 nós (6 empresas + 4 pessoas + 4 fundos + 2 reguladores + 1 banco) e 21 arestas com tipos como CESSAO_CREDITO, TEM_COTISTA, POSSUI_DEBENTURE, EX_SOCIO, TRANSFERENCIA_DIVIDA.
+
+CNPJs novos adicionados a `config.py:SEEDS_FRAUDE_ICL`:
+
+```
+29.786.909/0001-07  Lancia! FIDC
+57.445.179/0001-08  DV Holding Financeira (Vorcaro)
+55.757.077/0001-00  Master Participações S.A.
+55.997.450/0001-92  Master Serviços S.A.
+50.365.044/0001-93  RDA Mineração
+31.446.245/0001-70  Super Empreendimentos (casa Brasília)
+34.263.138/0001-03  Lormont Participações (Nelson Tanure)
+38.461.854/0001-48  Banvox Holding Financeira (ex-Quadrado)
+02.671.743/0001-19  Banvox DTVM
++ 3 inativos
+```
+
+CNPJs em `CNPJS_A_BUSCAR` (ainda não confirmados — provavelmente FIDCs fechados/restritos sem cadastro CVM público):
+
+- SDG II FIDC
+- Hans 95 FIDC (Reag — Operação Carbono Oculto)
+- Anna FIDC
+- Termópilas FIDC
+- MKS Soluções Integradas
+- NGV SPE
+
+**Para importar/re-importar o grafo de fraude:**
+
+```bash
+python importar_grafo_fraude.py
+```
+
+Lê o arquivo Excel do Tulio (`Nodes` + `Edges`), insere nas tabelas `fraude_nodes` e `fraude_edges` do `master.db`. Cruza com `empresas` quando CNPJ confere.
+
+**Sugestão futura (Tulio):** scrapper de notícias de fontes confiáveis (Folha, Valor, Agência Pública, ICL, Metropoles) extraindo entidades e relações via LLM. Cada matéria viraria um lote de `fraude_nodes`/`fraude_edges` com campo `fonte` apontando para URL e data. Fundir entidades por nome com normalização canônica.
+
 ### 6.5 Apresentação / pitch
 
 Há **duas versões** do pitch disponíveis:

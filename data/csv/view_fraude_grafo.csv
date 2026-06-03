@@ -1,0 +1,22 @@
+﻿de,de_label,de_tipo,para,para_label,para_tipo,tipo_relacao,detalhes,fonte
+AUGUSTO_LIMA,Augusto Lima,Pessoa Física,NGV_SPE,NGV SPE,Empresa,LIGADO_A,Empresário ligado à NGV SPE.,ICL/Folha 2026-05-28
+AUGUSTO_LIMA,Augusto Lima,Pessoa Física,BANCO_MASTER,Banco Master,Instituição Financeira,EX_SOCIO,Ex-sócio de Daniel Vorcaro no Banco Master.,ICL/Folha 2026-05-28
+BANCO_CENTRAL,Banco Central (BC),Órgão Regulador,BANCO_MASTER,Banco Master,Instituição Financeira,INVESTIGA,Investiga fraudes contábeis e simulações de crédito do banco.,ICL/Folha 2026-05-28
+BANCO_CENTRAL,Banco Central (BC),Órgão Regulador,FUNDO_ANNA,Fundo Anna,Fundo de Investimento,IDENTIFICOU_FRAUDE,Identificado como um dos 6 fundos fraudulentos no início das investigações.,ICL/Folha 2026-05-28
+BANCO_MASTER,Banco Master,Instituição Financeira,FUNDO_SDG_II,Fundo SDG II (FIDC),Fundo de Investimento,CESSAO_CREDITO,"Vendeu R$ 1,1 bilhão diretamente em direitos creditórios podres.",ICL/Folha 2026-05-28
+BANCO_MASTER,Banco Master,Instituição Financeira,LORMONT_PART,Lormont Participações,Empresa,CESSAO_CREDITO,Vendeu R$ 102 milhões em créditos vinculados à Lormont para o SDG II.,ICL/Folha 2026-05-28
+BANCO_MASTER,Banco Master,Instituição Financeira,MKS_SOLUCOES,MKS Soluções Integradas,Empresa,EMPRESTIMO_SIMULADO,MKS realizou empréstimo simulado com o Master para alimentar o ciclo.,ICL/Folha 2026-05-28
+BANVOX,Banvox,Empresa,DV_HOLDING,DV Holding,Empresa,TRANSFERENCIA_DIVIDA,Debêntures foram transferidas para a DV Holding na saída de Quadrado.,ICL/Folha 2026-05-28
+DANIEL_VORCARO,Daniel Vorcaro,Pessoa Física,DV_HOLDING,DV Holding,Empresa,CONTROLADOR,Daniel Vorcaro é o proprietário da DV Holding.,ICL/Folha 2026-05-28
+DANIEL_VORCARO,Daniel Vorcaro,Pessoa Física,SUPER_EMPREENDIMENTOS,Super Empreendimentos,Empresa,LIGADO_A,Super Empreendimentos funcionava como braço financeiro de Vorcaro.,ICL/Folha 2026-05-28
+FUNDO_ANNA,Fundo Anna,Fundo de Investimento,FUNDO_HANS_95,Fundo Hans 95,Fundo de Investimento,CONTROLADO_POR,A participação do Hans 95 no SDG II ocorre por meio do fundo Anna.,ICL/Folha 2026-05-28
+FUNDO_LANCIA,Fundo Lancia!,Fundo de Investimento,NGV_SPE,NGV SPE,Empresa,POSSUI_DEBENTURE,Possui duas debêntures da NGV SPE totalizando R$ 30 milhões.,ICL/Folha 2026-05-28
+FUNDO_SDG_II,Fundo SDG II (FIDC),Fundo de Investimento,FUNDO_ANNA,Fundo Anna,Fundo de Investimento,TEM_COTISTA,Fundo Anna é um dos dois únicos cotistas do SDG II.,ICL/Folha 2026-05-28
+FUNDO_SDG_II,Fundo SDG II (FIDC),Fundo de Investimento,MKS_SOLUCOES,MKS Soluções Integradas,Empresa,TEM_COTISTA,MKS é cotista direta do fundo SDG II.,ICL/Folha 2026-05-28
+FUNDO_SDG_II,Fundo SDG II (FIDC),Fundo de Investimento,LORMONT_PART,Lormont Participações,Empresa,CREDITO_A_RECEBER,Possui R$ 553 milhões em créditos a receber da Lormont.,ICL/Folha 2026-05-28
+FUNDO_SDG_II,Fundo SDG II (FIDC),Fundo de Investimento,BANVOX,Banvox,Empresa,POSSUI_DEBENTURE,Carrega R$ 380 milhões em debêntures da Banvox.,ICL/Folha 2026-05-28
+FUNDO_SDG_II,Fundo SDG II (FIDC),Fundo de Investimento,SUPER_EMPREENDIMENTOS,Super Empreendimentos,Empresa,CREDITO_A_RECEBER,Possui R$ 22 milhões em créditos a receber da Super Empreendimentos.,ICL/Folha 2026-05-28
+MAURICIO_QUADRADO,Maurício Quadrado,Pessoa Física,BANVOX,Banvox,Empresa,EX_DONO,Era o proprietário da Banvox antes de sair do Banco Master.,ICL/Folha 2026-05-28
+MAURICIO_QUADRADO,Maurício Quadrado,Pessoa Física,BANCO_MASTER,Banco Master,Instituição Financeira,EX_SOCIO,Ex-sócio de Daniel Vorcaro no Banco Master.,ICL/Folha 2026-05-28
+NELSON_TANURE,Nelson Tanure,Pessoa Física,LORMONT_PART,Lormont Participações,Empresa,LIGADO_A,Empresário controlador ou fortemente associado à Lormont.,ICL/Folha 2026-05-28
+NGV_SPE,NGV SPE,Empresa,FUNDO_LANCIA,Fundo Lancia!,Fundo de Investimento,PRORROGACAO_CONTRATUAL,Aditivos sucessivos (2020-2024) adiaram juros e principal para evitar inadimplência visível.,ICL/Folha 2026-05-28

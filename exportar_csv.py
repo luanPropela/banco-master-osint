@@ -27,6 +27,7 @@ def main():
     tabelas_brutas = [
         "empresas", "pessoas", "participacoes", "papeis_fundo",
         "inf_diario", "carteira", "cvm_processos", "cvm_acusados",
+        "fraude_nodes", "fraude_edges",
     ]
     for t in tabelas_brutas:
         try:
@@ -116,6 +117,26 @@ def main():
         """)
     except pd.io.sql.DatabaseError:
         print("  view_resgates_atipicos      (inf_diario nao populada)")
+
+    try:
+        export_tabela(con, "view_fraude_grafo", """
+            SELECT
+                e.source                 AS de,
+                ns.label                 AS de_label,
+                ns.tipo                  AS de_tipo,
+                e.target                 AS para,
+                nt.label                 AS para_label,
+                nt.tipo                  AS para_tipo,
+                e.tipo                   AS tipo_relacao,
+                e.detalhes               AS detalhes,
+                e.fonte                  AS fonte
+            FROM fraude_edges e
+            JOIN fraude_nodes ns ON ns.node_id = e.source
+            JOIN fraude_nodes nt ON nt.node_id = e.target
+            ORDER BY e.source
+        """)
+    except pd.io.sql.DatabaseError:
+        print("  view_fraude_grafo           (fraude_nodes/edges nao populadas)")
 
     try:
         export_tabela(con, "view_acusados_master", """

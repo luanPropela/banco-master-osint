@@ -37,9 +37,9 @@ curl 'https://fnet.bmfbovespa.com.br/fnet/publico/pesquisarGerenciadorDocumentos
 curl -o sdg2_df_2024.pdf 'https://fnet.bmfbovespa.com.br/fnet/publico/downloadDocumento?id=963178&cvm=true'
 ```
 
-Ver `analise/recon/probe_fnet.py` e `analise/recon/fnet_download.py`.
+Ver `investigacao-claude/recon/probe_fnet.py` e `investigacao-claude/recon/fnet_download.py`.
 
-## Trechos-chave (texto extraído — `data/fnet_docs/SDG2_DemonstracoesFinanceiras_A_963178.txt`)
+## Trechos-chave (texto extraído — `investigacao-claude/dados/fnet/SDG2_DemonstracoesFinanceiras_A_963178.txt`)
 
 - **Abstenção de opinião** — base: "ausência de estudos de recuperabilidade dos direitos creditórios e
   ausência parcial de lastro"; "não recebemos a documentação comprobatória do lastro de aproximadamente

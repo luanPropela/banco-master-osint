@@ -1,0 +1,79 @@
+﻿id,source,target,tipo,detalhes,fonte
+128,ANDRE_MENDONCA,POLICIA_FEDERAL,AUTORIZOU,Decisão STF 27/05/2026 — 8ª fase Compliance Zero,G1+CNN+ICL+Agência Brasil+Metropoles 27-28/05/2026 + Reag/CBSF 15/01/2026
+138,ASTER_PETROLEO,FIDC_GOLD_STYLE,APORTOU,"R$ 759,5 mi para o Gold Style",G1+CNN+ICL+Agência Brasil+Metropoles 27-28/05/2026 + Reag/CBSF 15/01/2026
+141,ASTER_PETROLEO,HD_PETROLEO,CONTROLA,Rede de postos em Teresina/PI,G1+CNN+ICL+Agência Brasil+Metropoles 27-28/05/2026 + Reag/CBSF 15/01/2026
+142,ASTER_PETROLEO,COPAPE,COMERCIALIZA,Combustíveis fabricados pela Copape,G1+CNN+ICL+Agência Brasil+Metropoles 27-28/05/2026 + Reag/CBSF 15/01/2026
+109,AUGUSTO_LIMA,NGV_SPE,LIGADO_A,Empresário ligado à NGV SPE.,ICL/Folha 2026-05-28
+110,AUGUSTO_LIMA,BANCO_MASTER,EX_SOCIO,Ex-sócio de Daniel Vorcaro no Banco Master.,ICL/Folha 2026-05-28
+152,AUGUSTO_LIMA,BANCO_VOITER,ADQUIRIU,07/2025 — após sair Master em 05/2024,G1+CNN+ICL+Agência Brasil+Metropoles 27-28/05/2026 + Reag/CBSF 15/01/2026
+113,BANCO_CENTRAL,BANCO_MASTER,INVESTIGA,Investiga fraudes contábeis e simulações de crédito do banco.,ICL/Folha 2026-05-28
+114,BANCO_CENTRAL,FUNDO_ANNA,IDENTIFICOU_FRAUDE,Identificado como um dos 6 fundos fraudulentos no início das investigações.,ICL/Folha 2026-05-28
+94,BANCO_MASTER,FUNDO_SDG_II,CESSAO_CREDITO,"Vendeu R$ 1,1 bilhão diretamente em direitos creditórios podres.",ICL/Folha 2026-05-28
+99,BANCO_MASTER,LORMONT_PART,CESSAO_CREDITO,Vendeu R$ 102 milhões em créditos vinculados à Lormont para o SDG II.,ICL/Folha 2026-05-28
+112,BANCO_MASTER,MKS_SOLUCOES,EMPRESTIMO_SIMULADO,MKS realizou empréstimo simulado com o Master para alimentar o ciclo.,ICL/Folha 2026-05-28
+127,BANCO_MASTER,MIDIAS_PROMOTORA,PAGAMENTO,R$ 126 mi transferidos entre 2022 e 2025,G1+CNN+ICL+Agência Brasil+Metropoles 27-28/05/2026 + Reag/CBSF 15/01/2026
+158,BANCO_MASTER,TIRRENO,VENDEU_CARTEIRAS,Para Tirreno; depois vendidas pra BRB,G1+CNN+ICL+Agência Brasil+Metropoles 27-28/05/2026 + Reag/CBSF 15/01/2026
+156,BANCO_MAXIMA,BANCO_MASTER,TRANSFORMOU_EM,Banco Máxima virou Banco Master S.A.,G1+CNN+ICL+Agência Brasil+Metropoles 27-28/05/2026 + Reag/CBSF 15/01/2026
+154,BANCO_PLENO,POLICIA_FEDERAL,LIQUIDADO,18/02/2026 pelo BACEN,G1+CNN+ICL+Agência Brasil+Metropoles 27-28/05/2026 + Reag/CBSF 15/01/2026
+153,BANCO_VOITER,BANCO_PLENO,RENOMEACAO,Mesmo CNPJ 61.024.352/0001-71,G1+CNN+ICL+Agência Brasil+Metropoles 27-28/05/2026 + Reag/CBSF 15/01/2026
+104,BANVOX,DV_HOLDING,TRANSFERENCIA_DIVIDA,Debêntures foram transferidas para a DV Holding na saída de Quadrado.,ICL/Folha 2026-05-28
+150,BANVOX,DANIEL_VORCARO,COFUNDADO_POR,Vorcaro e Quadrado criaram em 2020,G1+CNN+ICL+Agência Brasil+Metropoles 27-28/05/2026 + Reag/CBSF 15/01/2026
+151,BANVOX,MAURICIO_QUADRADO,COFUNDADO_POR,Idem,G1+CNN+ICL+Agência Brasil+Metropoles 27-28/05/2026 + Reag/CBSF 15/01/2026
+143,BETO_LOCO,ASTER_PETROLEO,LIGADO_A,,G1+CNN+ICL+Agência Brasil+Metropoles 27-28/05/2026 + Reag/CBSF 15/01/2026
+139,BK_BANK,FIDC_GOLD_STYLE,APORTOU,R$ 158 mi,G1+CNN+ICL+Agência Brasil+Metropoles 27-28/05/2026 + Reag/CBSF 15/01/2026
+166,CBSF_DTVM,FUNDO_SDG_II,ADMINISTRA,CBSF DTVM (ex-Reag Trust) é a administradora do SDG II desde 15/09/2022,CVMWeb consulta manual 03/06/2026
+171,CBSF_DTVM,CBSF_TRUST_ADM,GRUPO,"Ambas com nome CBSF, mesma estrutura societária Reag",CVMWeb consulta manual 03/06/2026
+167,CBSF_TRUST_ADM,FUNDO_SDG_II,GERE,Gestor da carteira do SDG II,CVMWeb consulta manual 03/06/2026
+115,CLAUDIO_CASTRO,DANIEL_VORCARO,ENCONTROS_PRIVADOS,Encontros frequentes priv. e exterior; Vorcaro pagava as despesas (PF),G1+CNN+ICL+Agência Brasil+Metropoles 27-28/05/2026 + Reag/CBSF 15/01/2026
+105,DANIEL_VORCARO,DV_HOLDING,CONTROLADOR,Daniel Vorcaro é o proprietário da DV Holding.,ICL/Folha 2026-05-28
+106,DANIEL_VORCARO,SUPER_EMPREENDIMENTOS,LIGADO_A,Super Empreendimentos funcionava como braço financeiro de Vorcaro.,ICL/Folha 2026-05-28
+155,DANIEL_VORCARO,BANCO_VOITER,PARTICIPOU,Indusval/Voiter integrado ao conglomerado Master início 2024,G1+CNN+ICL+Agência Brasil+Metropoles 27-28/05/2026 + Reag/CBSF 15/01/2026
+157,DANIEL_VORCARO,TIRRENO,CONTROLA_FACHADA,Empresa de fachada criada por Vorcaro (PF),G1+CNN+ICL+Agência Brasil+Metropoles 27-28/05/2026 + Reag/CBSF 15/01/2026
+120,DEIVIS_ANTUNES,RIOPREVIDENCIA,PRESIDIU,05/07/2023 a jan/2026; renúncia em meio à investigação,G1+CNN+ICL+Agência Brasil+Metropoles 27-28/05/2026 + Reag/CBSF 15/01/2026
+121,DEIVIS_ANTUNES,POLICIA_FEDERAL,PRESO_POR,03/02/2026 (2ª fase Compliance Zero),G1+CNN+ICL+Agência Brasil+Metropoles 27-28/05/2026 + Reag/CBSF 15/01/2026
+169,DIEGO_NASCIMENTO,FUNDO_SDG_II,DIRETOR_DE_GESTAO,Diretor responsável pela gestão da carteira,CVMWeb consulta manual 03/06/2026
+137,FABIANO_ZETTEL,SUPER_EMPREENDIMENTOS,DIRETOR,Diretor entre ago/2021 e jul/2024,G1+CNN+ICL+Agência Brasil+Metropoles 27-28/05/2026 + Reag/CBSF 15/01/2026
+160,FICTOR,BANCO_MASTER,COMPRA_ANUNCIADA,Mar/2025; BACEN bloqueou em 17/11/2025,G1+CNN+ICL+Agência Brasil+Metropoles 27-28/05/2026 + Reag/CBSF 15/01/2026
+147,FIDC_MARANTA,LORMONT_PART,TEM_CCB,"R$ 73,7 mi em CCBs Lormont (97% do portfólio)",G1+CNN+ICL+Agência Brasil+Metropoles 27-28/05/2026 + Reag/CBSF 15/01/2026
+97,FUNDO_ANNA,FUNDO_HANS_95,CONTROLADO_POR,A participação do Hans 95 no SDG II ocorre por meio do fundo Anna.,ICL/Folha 2026-05-28
+108,FUNDO_LANCIA,NGV_SPE,POSSUI_DEBENTURE,Possui duas debêntures da NGV SPE totalizando R$ 30 milhões.,ICL/Folha 2026-05-28
+95,FUNDO_SDG_II,FUNDO_ANNA,TEM_COTISTA,Fundo Anna é um dos dois únicos cotistas do SDG II.,ICL/Folha 2026-05-28
+96,FUNDO_SDG_II,MKS_SOLUCOES,TEM_COTISTA,MKS é cotista direta do fundo SDG II.,ICL/Folha 2026-05-28
+98,FUNDO_SDG_II,LORMONT_PART,CREDITO_A_RECEBER,Possui R$ 553 milhões em créditos a receber da Lormont.,ICL/Folha 2026-05-28
+103,FUNDO_SDG_II,BANVOX,POSSUI_DEBENTURE,Carrega R$ 380 milhões em debêntures da Banvox.,ICL/Folha 2026-05-28
+107,FUNDO_SDG_II,SUPER_EMPREENDIMENTOS,CREDITO_A_RECEBER,Possui R$ 22 milhões em créditos a receber da Super Empreendimentos.,ICL/Folha 2026-05-28
+136,FUNDO_TERMOPILAS,SUPER_EMPREENDIMENTOS,PRINCIPAL_ACIONISTA,"Termópilas é o principal acionista da Super (R$ 2,6 bi de capital)",G1+CNN+ICL+Agência Brasil+Metropoles 27-28/05/2026 + Reag/CBSF 15/01/2026
+126,GILSON_VASCONCELOS,MIDIAS_PROMOTORA,SOCIO_LARANJA,Único sócio aparente; beneficiário do auxílio emergencial pandemia,G1+CNN+ICL+Agência Brasil+Metropoles 27-28/05/2026 + Reag/CBSF 15/01/2026
+140,INOVANTI,FIDC_GOLD_STYLE,APORTOU,R$ 175 mi,G1+CNN+ICL+Agência Brasil+Metropoles 27-28/05/2026 + Reag/CBSF 15/01/2026
+129,JOAO_MANSUR,REAG_INVEST,FUNDADOR,Fundou em 2012,G1+CNN+ICL+Agência Brasil+Metropoles 27-28/05/2026 + Reag/CBSF 15/01/2026
+130,JOAO_MANSUR,CBSF_DTVM,CONTROLADOR,Antiga Reag Trust DTVM,G1+CNN+ICL+Agência Brasil+Metropoles 27-28/05/2026 + Reag/CBSF 15/01/2026
+148,LORMONT_PART,REAG_INVEST,FLUXO_R720MI,Empréstimos para Reag R$ 720 mi (Carbono Oculto),G1+CNN+ICL+Agência Brasil+Metropoles 27-28/05/2026 + Reag/CBSF 15/01/2026
+168,MARCOS_F_COSTA,FUNDO_SDG_II,DIRETOR_DO_FUNDO,Diretor responsável formal do fundo SDG II,CVMWeb consulta manual 03/06/2026
+101,MAURICIO_QUADRADO,BANVOX,EX_DONO,Era o proprietário da Banvox antes de sair do Banco Master.,ICL/Folha 2026-05-28
+102,MAURICIO_QUADRADO,BANCO_MASTER,EX_SOCIO,Ex-sócio de Daniel Vorcaro no Banco Master.,ICL/Folha 2026-05-28
+149,MAURICIO_QUADRADO,PLANNER,EX_SOCIO,"Sócio até 2022, quando criou Trustee DTVM",G1+CNN+ICL+Agência Brasil+Metropoles 27-28/05/2026 + Reag/CBSF 15/01/2026
+144,MOHAMAD_MOURAD,ASTER_PETROLEO,LIGADO_A,,G1+CNN+ICL+Agência Brasil+Metropoles 27-28/05/2026 + Reag/CBSF 15/01/2026
+145,MOHAMAD_MOURAD,COPAPE,LIGADO_A,,G1+CNN+ICL+Agência Brasil+Metropoles 27-28/05/2026 + Reag/CBSF 15/01/2026
+100,NELSON_TANURE,LORMONT_PART,LIGADO_A,Empresário controlador ou fortemente associado à Lormont.,ICL/Folha 2026-05-28
+146,NELSON_TANURE,FIDC_MARANTA,BENEFICIARIO_FINAL,"Via Lormont; CCBs R$ 73,7 mi = 97% do portfólio",G1+CNN+ICL+Agência Brasil+Metropoles 27-28/05/2026 + Reag/CBSF 15/01/2026
+111,NGV_SPE,FUNDO_LANCIA,PRORROGACAO_CONTRATUAL,Aditivos sucessivos (2020-2024) adiaram juros e principal para evitar inadimplência visível.,ICL/Folha 2026-05-28
+161,OP_CARBONO_OCULTO,REAG_INVEST,INVESTIGA,Lavagem PCC; deflagrada 28/08/2025,G1+CNN+ICL+Agência Brasil+Metropoles 27-28/05/2026 + Reag/CBSF 15/01/2026
+162,OP_CARBONO_OCULTO,BANVOX,INVESTIGA,Banvox DTVM também acusada,G1+CNN+ICL+Agência Brasil+Metropoles 27-28/05/2026 + Reag/CBSF 15/01/2026
+163,OP_CARBONO_OCULTO,ASTER_PETROLEO,INVESTIGA,PCC combustíveis,G1+CNN+ICL+Agência Brasil+Metropoles 27-28/05/2026 + Reag/CBSF 15/01/2026
+164,OP_CARBONO_OCULTO,BK_BANK,INVESTIGA,PCC fintech,G1+CNN+ICL+Agência Brasil+Metropoles 27-28/05/2026 + Reag/CBSF 15/01/2026
+165,OP_CARBONO_OCULTO,INOVANTI,INVESTIGA,PCC fintech,G1+CNN+ICL+Agência Brasil+Metropoles 27-28/05/2026 + Reag/CBSF 15/01/2026
+131,REAG_INVEST,CBSF_DTVM,GRUPO,Liquidada 15/01/2026 pelo BACEN,G1+CNN+ICL+Agência Brasil+Metropoles 27-28/05/2026 + Reag/CBSF 15/01/2026
+132,REAG_INVEST,FIDC_GOLD_STYLE,ADMINISTRA,Recebeu R$ 1 bi de empresas PCC,G1+CNN+ICL+Agência Brasil+Metropoles 27-28/05/2026 + Reag/CBSF 15/01/2026
+133,REAG_INVEST,FUNDO_TERMOPILAS,ADMINISTRA,,G1+CNN+ICL+Agência Brasil+Metropoles 27-28/05/2026 + Reag/CBSF 15/01/2026
+134,REAG_INVEST,FUNDO_ALUCARD,ADMINISTRA,"Controla Allora, Lenore, Milano, Stanza, Domani, Chesapeake",G1+CNN+ICL+Agência Brasil+Metropoles 27-28/05/2026 + Reag/CBSF 15/01/2026
+135,REAG_INVEST,FUNDO_HANS_95,ADMINISTRA,Hans 95 pertence à Reag (ICL),G1+CNN+ICL+Agência Brasil+Metropoles 27-28/05/2026 + Reag/CBSF 15/01/2026
+170,REAG_INVEST,CBSF_TRUST_ADM,GRUPO,CBSF Trust pertence ao grupo Reag (site www.reag.com.br),CVMWeb consulta manual 03/06/2026
+122,RICARDO_SIQUEIRA,CLAUDIO_CASTRO,INTERMEDIOU,Aproximou banqueiro do governador (PF),G1+CNN+ICL+Agência Brasil+Metropoles 27-28/05/2026 + Reag/CBSF 15/01/2026
+123,RICARDO_SIQUEIRA,DANIEL_VORCARO,INTERMEDIOU,"Articulador, capturer e lobbyist; identificava oportunidades",G1+CNN+ICL+Agência Brasil+Metropoles 27-28/05/2026 + Reag/CBSF 15/01/2026
+124,RICARDO_SIQUEIRA,MIDIAS_PROMOTORA,OPERA_LARANJA,Empresa registrada em nome de testa-de-ferro (Gilson Vasconcelos),G1+CNN+ICL+Agência Brasil+Metropoles 27-28/05/2026 + Reag/CBSF 15/01/2026
+125,RICARDO_SIQUEIRA,TRUMP_HOTEL_BARRA,FRAUDOU,R$ 17 mi (caso anterior),G1+CNN+ICL+Agência Brasil+Metropoles 27-28/05/2026 + Reag/CBSF 15/01/2026
+116,RIOPREVIDENCIA,BANCO_MASTER,APORTE_FINANCEIRO,"R$ 3,69 bi total entre 2023-2024 (LFs + fundos)",G1+CNN+ICL+Agência Brasil+Metropoles 27-28/05/2026 + Reag/CBSF 15/01/2026
+117,RIOPREVIDENCIA,BANCO_MASTER,APORTE_LF_SINCRONO,R$ 80 mi em 15/05/2024 (24h após encontro Castro-Vorcaro em NY),G1+CNN+ICL+Agência Brasil+Metropoles 27-28/05/2026 + Reag/CBSF 15/01/2026
+118,RIOPREVIDENCIA,BANCO_MASTER,APORTE_LFS_PERIODO,R$ 960 mi em LFs entre out/2023 e ago/2024 (venc. 2033-2034),G1+CNN+ICL+Agência Brasil+Metropoles 27-28/05/2026 + Reag/CBSF 15/01/2026
+119,RIOPREVIDENCIA,BANCO_MASTER,APORTE_7_DEPOSITOS,7 depósitos entre nov/2023 e jul/2024 somando R$ 970 mi,G1+CNN+ICL+Agência Brasil+Metropoles 27-28/05/2026 + Reag/CBSF 15/01/2026
+159,TIRRENO,BRB,VENDEU_CARTEIRAS,"R$ 12,2 bi em carteiras fictícias (PF: contratos fabricados)",G1+CNN+ICL+Agência Brasil+Metropoles 27-28/05/2026 + Reag/CBSF 15/01/2026

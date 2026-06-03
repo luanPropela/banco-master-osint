@@ -14,7 +14,7 @@ arquivada aqui, não até um link que pode sair do ar ou mudar.
 | `CVM-FNET_SDG-II_DemonstracoesFinanceiras_2024_id963178.md` | idem | Proveniência + trechos-chave + reprodução via API FNET |
 | `*.pdf.sha256` | — | Hash de integridade dos PDFs |
 
-> A reconstrução que usa estas fontes está em `analise/RECONSTRUCAO_SDG2.md` (10 de 11 afirmações
+> A reconstrução que usa estas fontes está em `investigacao-claude/RECONSTRUCAO_SDG2.md` (10 de 11 afirmações
 > da matéria reproduzidas a partir de dado público da CVM).
 
 ### Verificar integridade de todos os PDFs
@@ -50,7 +50,7 @@ https://cvmweb.cvm.gov.br/swb/default.asp?sg_sistema=fundosreg
 (a) **Informe Mensal de FIDC** (dado aberto, `dados.cvm.gov.br/dataset/fidc-doc-inf_mensal`),
 que o pipeline ainda **não** coleta; e (b) **CVMWeb fundosreg** (manual), para o que o aberto
 não expõe. Estruturar a coleta manual numa tabela com os mesmos campos do Informe Mensal
-deixa as duas origens comparáveis no grafo. Ver `analise/ANALISE_RECONSTRUCAO.md`, Passos 1 e 3.
+deixa as duas origens comparáveis no grafo. Ver `investigacao-claude/ANALISE_RECONSTRUCAO.md`, Passos 1 e 3.
 
 ---
 

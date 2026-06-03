@@ -1,0 +1,37 @@
+﻿fundo_cnpj,data_competencia,tipo_aplicacao,tipo_ativo,emissor_ligado,emissor_nome,emissor_cnpj,cod_ativo,desc_ativo,qt_pos_final,vl_merc_pos_final,vl_aquisicao,vl_venda,bloco
+02727085000130,2025-04-30,DIFERENCIAL DE SWAP A PAGAR,SWAP,,,,,,,0.0,,,cda_fi_BLC_3_202504
+02727085000130,2025-04-30,Ações,Ação ordinária,N,PETROBRAS,33000167000101,,PETR3,40136.0,1286358.8,0.0,275473.0,cda_fi_BLC_8_202504
+02727085000130,2025-04-30,Disponibilidades,Outros,,,,,Outros - Caixa,,80932.48,,,cda_fi_BLC_8_202504
+02727085000130,2025-04-30,Valores a pagar,Outros,,,,,Outros - Valores a pagar,,254.9,,,cda_fi_BLC_8_202504
+02727085000130,2025-04-30,Valores a receber,Outros,,,,,Outros - Valores a receber,,0.0,,,cda_fi_BLC_8_202504
+02727085000130,2025-04-30,,,,,,,,,,,,cda_fi_PL_202504
+03919474000120,2025-04-30,Títulos Públicos,Título público federal,,,,,,6.0,98097.81,0.0,0.0,cda_fi_BLC_1_202504
+03919474000120,2025-04-30,DIFERENCIAL DE SWAP A PAGAR,SWAP,,,,,,,0.0,,,cda_fi_BLC_3_202504
+03919474000120,2025-04-30,Disponibilidades,Outros,,,,,Outros - Caixa,,10048.68,,,cda_fi_BLC_8_202504
+03919474000120,2025-04-30,Valores a pagar,Outros,,,,,Outros - Valores a pagar,,724.7,,,cda_fi_BLC_8_202504
+03919474000120,2025-04-30,Valores a receber,Outros,,,,,Outros - Valores a receber,,0.0,,,cda_fi_BLC_8_202504
+03919474000120,2025-04-30,,,,,,,,,,,,cda_fi_PL_202504
+04894428000186,2025-04-30,Títulos Públicos,Título público federal,,,,,,37.0,603739.19,0.0,0.0,cda_fi_BLC_1_202504
+04894428000186,2025-04-30,DIFERENCIAL DE SWAP A PAGAR,SWAP,,,,,,,0.0,,,cda_fi_BLC_3_202504
+04894428000186,2025-04-30,Disponibilidades,Outros,,,,,Outros - Caixa,,15737.17,,,cda_fi_BLC_8_202504
+04894428000186,2025-04-30,Valores a pagar,Outros,,,,,Outros - Valores a pagar,,1352.04,,,cda_fi_BLC_8_202504
+04894428000186,2025-04-30,Valores a receber,Outros,,,,,Outros - Valores a receber,,0.0,,,cda_fi_BLC_8_202504
+04894428000186,2025-04-30,,,,,,,,,,,,cda_fi_PL_202504
+02727085000130,2025-08-31,DIFERENCIAL DE SWAP A PAGAR,SWAP,,,,,,,0.0,,,cda_fi_BLC_3_202508
+02727085000130,2025-08-31,Ações,Ação ordinária,N,PETROBRAS,33000167000101,,PETR3,41036.0,1384965.0,0.0,49353.38,cda_fi_BLC_8_202508
+02727085000130,2025-08-31,Disponibilidades,Outros,,,,,Outros - Caixa,,28830.01,,,cda_fi_BLC_8_202508
+02727085000130,2025-08-31,Valores a pagar,Outros,,,,,Outros - Valores a pagar,,236.27,,,cda_fi_BLC_8_202508
+02727085000130,2025-08-31,Valores a receber,Outros,,,,,Outros - Valores a receber,,0.0,,,cda_fi_BLC_8_202508
+02727085000130,2025-08-31,,,,,,,,,,,,cda_fi_PL_202508
+31368739000184,2025-08-31,Cotas de Fundos,,N,BTG PACTUAL TESOURO SELIC FUNDO DE INVESTIMENTO RENDA FIXA REFERENCIADO DI,09215250000113,,,23681.742371,117059.88,0.0,12000.0,cda_fie_202508
+31368739000184,2025-08-31,Cotas de Fundos,,N,FUNDO DE INVESTIMENTO EM DIREITOS CREDITÓRIOS PREMIER,23293595000116,,,8381.70629,0.0,0.0,0.0,cda_fie_202508
+31368739000184,2025-08-31,Cotas de Fundos,,S,UPPER FUNDO DE INVESTIMENTO EM DIREITOS CREDITÓRIOS,28849674000184,,,27695.461955,32658172.46,0.0,0.0,cda_fie_202508
+31368739000184,2025-08-31,Disponibilidades,Outros,N,,,,Disponibilidade,,10573.21,,,cda_fie_202508
+31368739000184,2025-08-31,Valores a pagar,Outros,N,,,,Valores a Pagar,,8892.99,,,cda_fie_202508
+31368739000184,2025-08-31,Valores a receber,Outros,N,,,,Valores a Receber,,4914.89,,,cda_fie_202508
+31368739000184,2025-11-30,Cotas de Fundos,,N,BTG PACTUAL TESOURO SELIC FUNDO DE INVESTIMENTO RENDA FIXA REFERENCIADO DI,09215250000113,,,16650.006227,85216.71,0.0,11268.67,cda_fie_202511
+31368739000184,2025-11-30,Cotas de Fundos,,N,FUNDO DE INVESTIMENTO EM DIREITOS CREDITÓRIOS PREMIER,23293595000116,,,8381.70629,0.0,0.0,0.0,cda_fie_202511
+31368739000184,2025-11-30,Cotas de Fundos,,S,UPPER FUNDO DE INVESTIMENTO EM DIREITOS CREDITÓRIOS,28849674000184,,,27695.461955,31002312.82,0.0,0.0,cda_fie_202511
+31368739000184,2025-11-30,Disponibilidades,Outros,N,,,,Disponibilidade,,10831.42,,,cda_fie_202511
+31368739000184,2025-11-30,Valores a pagar,Outros,N,,,,Valores a Pagar,,10668.67,,,cda_fie_202511
+31368739000184,2025-11-30,Valores a receber,Outros,N,,,,Valores a Receber,,1257.3,,,cda_fie_202511

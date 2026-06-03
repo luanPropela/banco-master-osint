@@ -1,5 +1,5 @@
 # Ambiente isolado da investigação de reconstrução da fraude (branch analise-reconstrucao-claude).
-# Criar:   conda env create -f analise/environment.yml
+# Criar:   conda env create -f investigacao-claude/environment.yml
 # Usar:    conda run -n master-osint python <script>
 #   (ou)   conda activate master-osint
 name: master-osint

@@ -2,7 +2,7 @@
 
 > Branch `analise-reconstrucao-claude`. Análise de par sobre o estado do projeto em 03/06/2026, focada na pergunta que o Luan levantou no grupo: **"com isso aí, para aquele fundo da matéria, dá para reconstruir o que a matéria fala?"**
 >
-> Tudo aqui é verificável rodando `python analise/verificacao_reconstrucao.py` sobre os CSVs versionados.
+> Tudo aqui é verificável rodando `python investigacao-claude/verificacao_reconstrucao.py` sobre os CSVs versionados.
 
 ---
 
@@ -120,7 +120,7 @@ Baixar `inf_mensal_fidc_{AAAAMM}.zip` (2025-01 → 2026-04) e filtrar pelos CNPJ
 ## 6. Arquivos desta branch
 
 ```
-analise/
+investigacao-claude/
 ├── ANALISE_RECONSTRUCAO.md          este documento
 └── verificacao_reconstrucao.py      verificação reprodutível (roda só com os CSVs)
 ```

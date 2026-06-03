@@ -3,7 +3,7 @@
 > Branch `analise-reconstrucao-claude`. Resposta executável à pergunta do grupo:
 > **"dá para reconstruir o que a matéria fala?"** — Sim. Abaixo, 10 das 11 afirmações
 > quantitativas da reportagem Folha/ICL reproduzidas a partir de documentos públicos da CVM,
-> com cada número rastreado à sua fonte. Ambiente isolado em `analise/environment.yml`
+> com cada número rastreado à sua fonte. Ambiente isolado em `investigacao-claude/environment.yml`
 > (conda `master-osint`). Tudo reproduzível.
 
 ## Resultado — scorecard
@@ -22,7 +22,7 @@
 | Super Empreendimentos | R$ 22 mi | **R$ 22,012 mi** (cessão 06/03/2023) | ✅ exato |
 | Indício de fraude (lastro) | implícito | **Abstenção de opinião** do auditor; **62%** dos dir. creditórios sem lastro comprovado | ✅ confirmado |
 
-CSVs da reconstrução: `analise/recon/output/sdg2_cessoes_reconstruidas.csv` e `sdg2_scorecard.csv`.
+CSVs da reconstrução: `investigacao-claude/recon/output/sdg2_cessoes_reconstruidas.csv` e `sdg2_scorecard.csv`.
 
 ## As duas fontes públicas usadas
 
@@ -94,14 +94,14 @@ A ata de assembleia (FNET) confirma a estrutura de gestão que o grafo só tinha
 ## Como reproduzir
 
 ```bash
-conda env create -f analise/environment.yml          # cria env master-osint
-conda run -n master-osint python analise/recon/explore_fidc.py        # acha os fundos no informe FIDC
-conda run -n master-osint python analise/recon/sdg2_series.py         # série PL/ativo/dircred/cotistas
-conda run -n master-osint python analise/recon/sdg2_cotistas.py       # tipo de cotistas + snapshot dez/2025
-conda run -n master-osint python analise/recon/probe_fnet.py          # lista documentos FNET do SDG II
-conda run -n master-osint python analise/recon/fnet_download.py       # baixa as DFs (PDF)
-conda run -n master-osint python analise/recon/pdf_extract.py data/fnet_docs/SDG2_DemonstracoesFinanceiras_A_963178.pdf
-conda run -n master-osint python analise/recon/reconstruir_sdg2.py    # scorecard + CSVs
+conda env create -f investigacao-claude/environment.yml          # cria env master-osint
+conda run -n master-osint python investigacao-claude/recon/explore_fidc.py        # acha os fundos no informe FIDC
+conda run -n master-osint python investigacao-claude/recon/sdg2_series.py         # série PL/ativo/dircred/cotistas
+conda run -n master-osint python investigacao-claude/recon/sdg2_cotistas.py       # tipo de cotistas + snapshot dez/2025
+conda run -n master-osint python investigacao-claude/recon/probe_fnet.py          # lista documentos FNET do SDG II
+conda run -n master-osint python investigacao-claude/recon/fnet_download.py       # baixa as DFs (PDF)
+conda run -n master-osint python investigacao-claude/recon/pdf_extract.py investigacao-claude/dados/fnet/SDG2_DemonstracoesFinanceiras_A_963178.pdf
+conda run -n master-osint python investigacao-claude/recon/reconstruir_sdg2.py    # scorecard + CSVs
 ```
 
 ## Fontes arquivadas (verificáveis por hash)

@@ -16,6 +16,7 @@ Folha/ICL sobre o fundo SDG II foram **reproduzidas** (a 11ª — MKS como cotis
 investigacao-claude/
 ├── README.md                       este índice
 ├── RECONSTRUCAO_SDG2.md            relatório final — scorecard matéria × dado público
+├── INVESTIGACAO_ADMIN_GESTOR.md    onde vive admin/gestor e como pegar programaticamente (registro_fundo.csv)
 ├── ANALISE_RECONSTRUCAO.md         diagnóstico inicial (por que o grafo não reconstruía)
 ├── environment.yml                 ambiente conda isolado (master-osint)
 ├── verificacao_reconstrucao.py     verificação reprodutível sobre os CSVs do Carlyle
@@ -41,6 +42,7 @@ investigacao-claude/
 │   └── README.md                   índice de fontes + a fonte manual (CVMWeb fundosreg)
 │
 └── dados/                          DADOS
+    ├── registro_admin_gestor_fundos.csv     ← admin + gestor de 66 fundos do perímetro (registro_fundo RCVM 175)
     ├── fidc_mensal_fundos_master.csv        ← adquirido: Informe Mensal FIDC (SDG II, Anna, Lancia!, Gold Style)
     ├── fnet/                                ← adquirido: DFs do SDG II (PDF + texto extraído)
     ├── dataset_carlyle_csv/                 ← fonte: os 18 CSVs exportados pelo Carlyle (empresas, QSA,

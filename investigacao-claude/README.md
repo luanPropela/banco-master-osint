@@ -15,6 +15,7 @@ Folha/ICL sobre o fundo SDG II foram **reproduzidas** (a 11ª — MKS como cotis
 ```
 investigacao-claude/
 ├── README.md                       este índice
+├── AGENTS.md / CLAUDE.md           guia para agentes de IA (fontes, ambiente, gotchas, fatos-âncora)
 ├── RECONSTRUCAO_SDG2.md            relatório final — scorecard matéria × dado público
 ├── INVESTIGACAO_ADMIN_GESTOR.md    onde vive admin/gestor e como pegar programaticamente (registro_fundo.csv)
 ├── ANALISE_RECONSTRUCAO.md         diagnóstico inicial (por que o grafo não reconstruía)

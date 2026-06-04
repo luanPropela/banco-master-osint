@@ -12,4 +12,6 @@ dependencies:
   - openpyxl        # ler o dados_grafo_banco_master.xlsx do Túlio
   - beautifulsoup4  # parse de índices de diretório e HTML CVM
   - lxml
+  - pdfplumber      # extrair texto das Demonstrações Financeiras (FNET)
+  - pypdf
   - pip

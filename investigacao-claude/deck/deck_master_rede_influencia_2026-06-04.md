@@ -3,7 +3,7 @@ marp: true
 theme: oboya
 paginate: true
 size: 16:9
-header: 'Rede de Influência do Banco Master · motor de grafos sobre dado público'
+header: 'Rede de Influência do Banco Master · material para a equipe de pesquisa'
 footer: 'by Luan Carvalho'
 ---
 
@@ -13,17 +13,55 @@ footer: 'by Luan Carvalho'
 
 # A Rede de Influência do Banco Master
 
-## Um motor de grafos sobre dados públicos para mapear — e medir — a fraude
+## Entendendo o caso e desenhando um motor de grafos sobre dados públicos
 
 by **Luan Carvalho**
 
 <div class="legend">
-Do caso à reconstrução: <strong>o que aconteceu</strong>, <strong>como mapear</strong> e — principalmente — <strong>o que vamos construir</strong>.
+Material para a equipe de pesquisa: <strong>o que é o caso</strong> (com exemplos), <strong>a virada conceitual dos dois grafos</strong> e <strong>o que vamos construir</strong>.
 </div>
 
 ---
 
-# O Caso em Uma Página
+# O que vamos pesquisar
+
+Não é "ler a reportagem". É **reconstruir e medir**, a partir de **dado público**, a rede de influência do Banco Master — e mostrar, com método reproduzível, **onde** estavam as fraudes.
+
+<div class="cols">
+<div class="ba-after">
+<span class="lbl">A PERGUNTA</span>
+
+Dá para sair da *narrativa jornalística* e chegar à *prova em dado público* — mapeando a rede como um **grafo** e detectando as fraudes por suas **assinaturas** estruturais?
+</div>
+<div class="ba-after">
+<span class="lbl">POR QUE IMPORTA</span>
+
+A fraude foi desenhada para **não aparecer** nos controles do regulador. Reconstruí-la a partir de fontes abertas é um exercício de transparência — e um método replicável para o "próximo Master".
+</div>
+</div>
+
+> Fio condutor do deck: **caso → a virada dos dois grafos → prova de conceito (SDG II) → o motor que vamos construir.**
+
+---
+
+# Conceitos-chave — nivelando a equipe
+
+Para acompanhar o caso é preciso dominar alguns instrumentos. Definição **funcional** (o que faz na prática), não jurídica.
+
+| Termo | O que é (definição funcional) |
+|---|---|
+| **CDB** (Certif. de Depósito Bancário) | Título que o banco emite para captar dinheiro do público; o investidor empresta ao banco e recebe juros. Garantido pelo FGC até **R$ 250 mil por CPF**. |
+| **Letra Financeira (LF)** | Dívida de longo prazo emitida por bancos. **Sem cobertura do FGC** — quem compra assume o risco do banco. |
+| **FIDC** | Fundo que compra "direitos a receber" (empréstimos, duplicatas). Quem aplica vira **cotista** e carrega o risco dos créditos. |
+| **FIDC-NP** (Não Padronizado) | FIDC de regras frouxas: aceita créditos problemáticos, restrito a investidor profissional, **pouca transparência pública**. |
+| **CCB** (Céd. de Crédito Bancário) | Documento que formaliza um empréstimo; pode ser **cedido** (vendido) a um fundo. |
+| **Cessão de crédito** | Vender um empréstimo a receber a terceiros. Quem vende é o **cedente** e recebe caixa agora. |
+| **Cotista / Lastro** | Cotista = quem investe no fundo. Lastro = a garantia real do crédito (*existe mesmo o devedor e a dívida?*). |
+| **Administrador vs. Gestor** | Administrador responde legalmente pelo fundo; gestor decide os investimentos. **Empresas diferentes** — o que dilui a responsabilização. |
+
+---
+
+# O caso em uma página
 
 Banco Master (controlado por Daniel Vorcaro) entrou em liquidação extrajudicial pelo Banco Central em **18/11/2025** — tratada como a maior fraude bancária da história do Brasil.
 
@@ -38,19 +76,39 @@ Banco Master (controlado por Daniel Vorcaro) entrou em liquidação extrajudicia
 
 ---
 
-# A Mecânica em 5 Passos
+# A isca: o CDB a 140% do CDI
 
-1. <span class="pill warm">ISCA</span> CDB a **140% do CDI** — mercado pagava ~100%
-2. <span class="pill">CRÉDITO</span> Banco empresta a **empresas-fachada** (Tirreno, MKS, Banvox…)
-3. <span class="pill">ESTRUTURA</span> Fachadas aplicam recursos em **FIDC**
-4. <span class="pill">CICLO</span> Os fundos **recompram os empréstimos** do próprio Master
-5. <span class="pill alert">FRAUDE</span> Risco de calote **sai do balanço** — some dos controles do BC
+O Master captou volumes crescentes pagando muito acima do mercado. Por que é um sinal de alerta?
+
+**Exemplo:** com o CDI a ~**10% a.a.**, um CDB a 100% paga R$ 10 por R$ 100; a **140%, paga R$ 14** — 40% a mais. Para honrar isso, o banco precisaria emprestar a tomadores que pagassem ainda mais caro — carteiras de altíssimo risco ou **inexistentes**.
+
+<div class="metrics">
+<div class="metric"><span class="num">~140%</span><span class="cap">do CDI — oferecido pelo Master</span></div>
+<div class="metric"><span class="num">~100%</span><span class="cap">do CDI — média de mercado</span></div>
+<div class="metric"><span class="num">R$ 250 mil</span><span class="cap">teto do FGC por CPF</span></div>
+</div>
+
+> Sem ativos rentáveis suficientes, o banco emite **CDB novo para pagar o CDB que vence** — pirâmide financeira clássica. O FGC dava conforto ao investidor PF, que não percebia o risco.
+
+<p class="small">Fonte: Polícia Federal; CartaCapital; Seu Dinheiro.</p>
+
+---
+
+# A mecânica da fraude em 5 passos
+
+1. <span class="pill warm">ISCA</span> Capta caixa real vendendo **CDB a 140% do CDI** (e Letras Financeiras)
+2. <span class="pill">CRÉDITO</span> Empresta a **empresas-fachada** (Tirreno, MKS, Banvox, Lormont…)
+3. <span class="pill">ESTRUTURA</span> As fachadas aplicam o dinheiro em **FIDC**
+4. <span class="pill">CICLO</span> O fundo **recompra os empréstimos** que o próprio Master concedeu
+5. <span class="pill alert">FRAUDE</span> O risco de calote **sai do balanço do banco** — some dos controles do BC
+
+> Resultado: no papel o banco fica "saudável" e abre espaço para captar ainda mais CDB. O calote fica escondido no fundo, sobre o cotista.
 
 <p class="small">Fonte: ICL/Folha (26/05/2026); CNN Brasil.</p>
 
 ---
 
-# A Tese: Não Foi Só nos Fundos Próprios
+# A tese: não foi só nos fundos próprios
 
 > "O Master era o **MOTOR** — originava os empréstimos fictícios e a pirâmide de CDB. Os terceiros eram a **LAVANDERIA** e a porta de saída. O risco foi empurrado para fora do balanço regulado, para dentro de veículos 'independentes' de terceiros, para o calote não aparecer no Banco Central."
 
@@ -76,22 +134,58 @@ Banco Master (controlado por Daniel Vorcaro) entrou em liquidação extrajudicia
 
 ---
 
-# A Virada Conceitual: São Dois Grafos
+# A teia: quem são os terceiros envolvidos
 
-A fraude não cabe num grafo só. Ela vive nos **dois lados do balanço do Master** — e é a soma deles que fecha o caso.
+O esquema não operava isolado: uma rede de gestoras, bancos, previdências e fachadas dava **aparência de legalidade** e abastecia o caixa.
 
-| | Grafo da teia | Grafo de financiamento |
-|---|---|---|
-| **Lado do balanço** | Ativo — para onde o dinheiro foi e onde o crédito podre se escondeu | Passivo — de onde veio o dinheiro (o combustível) |
-| **Arestas** | cedeu_crédito · é_cotista · administra/gere · possui_debênture | emitiu_CDB/LF · aportou_em |
-| **Exemplos** | SDG II ← CCB Lormont; Anna → Hans 95; admin Reag/CBSF | RioPrevidência / fundos / PF seguram CDB/LF do Master |
-| **Responde** | *"como esconderam o rombo?"* | *"quem pagou a conta?"* |
+<div class="grid3">
+<div class="tile"><span class="lbl">Reag / CBSF</span><p>Gestora independente; administrava os FIDC centrais (SDG II, Hans 95, Anna). Liquidada pelo BC em 15/01/2026; alvo da Operação Carbono Oculto. "Um entre centenas de clientes" — mas no núcleo das estruturas.</p></div>
+<div class="tile"><span class="lbl">BRB — Banco de Brasília</span><p>Banco público do DF. Comprou <strong>R$ 12,2 bi</strong> em carteiras que o Master pegou da fachada Tirreno por R$ 6,7 bi sem pagar. Foi a principal fonte de caixa real.</p></div>
+<div class="tile"><span class="lbl">RioPrevidência + 18 RPPS</span><p>Previdência de servidores. RioPrev aplicou <strong>R$ 3,6 bi</strong>; outros 18 regimes próprios, <strong>R$ 1,86 bi</strong>. Aposentadoria pública exposta ao risco do banco.</p></div>
+<div class="tile"><span class="lbl">Empresas-fachada</span><p>Tirreno, MKS, Lormont (Nelson Tanure), Banvox (Maurício Quadrado), Super, NGV — cedentes/compradoras nos FIDC. O <strong>lastro real</strong> dessas cessões é o que se investiga.</p></div>
+</div>
+
+<p class="small">Fonte: Agência Brasil; CNN Brasil; Metrópoles; Folha de S.Paulo.</p>
 
 ---
 
-# Grafo da Teia (o ATIVO): como esconderam o rombo
+# A virada conceitual: por que DOIS grafos?
 
-Onde o crédito podre foi **enterrado** — uma rede de fundos de terceiros, não um cofre só.
+Uma fraude bancária se esconde nos **dois lados de um balanço**. Para enxergá-la, separamos a rede em dois grafos complementares — e depois os reconectamos.
+
+<div class="cols">
+<div class="ba-after">
+<span class="lbl">GRAFO DA TEIA → o ATIVO</span>
+
+Para **onde o dinheiro foi** e onde o crédito podre foi enterrado. Responde: *"como esconderam o rombo?"*
+</div>
+<div class="ba-after">
+<span class="lbl">GRAFO DE FINANCIAMENTO → o PASSIVO</span>
+
+**De onde veio o dinheiro** que abasteceu tudo (o combustível). Responde: *"quem pagou a conta?"*
+</div>
+</div>
+
+> Cada grafo responde uma pergunta diferente. **Só juntos** — e soldados no nó Banco Master — explicam a fraude. Os próximos slides destrincham cada um e o ponto de solda.
+
+---
+
+# Os dois lados do mesmo balanço
+
+| | **Grafo da teia** (ativo) | **Grafo de financiamento** (passivo) |
+|---|---|---|
+| **Lado do balanço** | Para onde o dinheiro foi; onde o crédito podre se escondeu | De onde veio o dinheiro (o combustível) |
+| **Arestas** | cedeu_crédito · é_cotista · administra/gere · possui_debênture | emitiu_CDB/LF · aportou_em (quem comprou o CDB) |
+| **Exemplos** | SDG II ← CCB Lormont; Anna → Hans 95; admin Reag/CBSF | RPPS / fundos / PF → seguram CDB/LF do Master |
+| **Pergunta que responde** | *"como esconderam o rombo?"* | *"quem pagou a conta / financiou a pirâmide?"* |
+
+<p class="small">É a mesma rede vista por dois ângulos contábeis — ativo e passivo.</p>
+
+---
+
+# Grafo da teia (o ATIVO): como esconderam o rombo
+
+É o lado **onde o crédito podre foi enterrado** — não num cofre só, mas numa **rede de fundos de terceiros**. As arestas são relações de **crédito e controle**: quem cedeu crédito a quem, quem é cotista de qual fundo, quem administra/gere.
 
 <div class="flow">
 <div class="step"><span class="k">Fachadas</span><span class="v">Lormont, Banvox, Super, NGV</span></div>
@@ -100,30 +194,32 @@ Onde o crédito podre foi **enterrado** — uma rede de fundos de terceiros, nã
 <div class="step"><span class="k">Reag / CBSF</span><span class="v">administra e gere o fundo</span></div>
 </div>
 
-Cotistas do SDG II: **Anna**, controlado pelo **Hans 95** — fundo central da teia (um dos 6 apontados pelo BC).
+**Lendo o exemplo:** a CCB do **Lormont** é cedida ao **SDG II** (aresta `cedeu_crédito`); o **Anna** é cotista do SDG II e é controlado pelo **Hans 95** (aresta `é_cotista`); tudo administrado pela **Reag/CBSF** (aresta `administra/gere`).
 
-<p class="small">Arestas: cedeu_crédito · é_cotista · administra/gere. Fonte: DF do SDG II (FNET); CVM.</p>
+<p class="small">Fonte: Demonstração Financeira do SDG II (FNET); CVM registro_fundo.</p>
 
 ---
 
-# Grafo do Financiamento (o PASSIVO): quem pagou a conta
+# Grafo do financiamento (o PASSIVO): quem pagou a conta
 
-O combustível: o Master captava caixa **emitindo CDB a 140% do CDI** e Letras Financeiras — comprados por terceiros.
+É o **combustível**. Para manter a roda girando, o Master precisava de **caixa real** — e o captava **emitindo CDB (140% do CDI) e Letras Financeiras**. As arestas: `emitiu_CDB/LF` (Master emite) e `aportou_em` (o investidor compra). Quem segura esses papéis aparece nas **carteiras públicas** de fundos e previdências.
 
 <div class="metrics">
-<div class="metric"><span class="num">R$ 12,2 bi</span><span class="cap">BRB — carteiras (fonte de caixa)</span></div>
+<div class="metric"><span class="num">R$ 12,2 bi</span><span class="cap">BRB — compra de carteiras (caixa)</span></div>
 <div class="metric"><span class="num">R$ 3,6 bi</span><span class="cap">RioPrevidência</span></div>
 <div class="metric"><span class="num">R$ 1,86 bi</span><span class="cap">18 RPPS estaduais/municipais</span></div>
 <div class="metric"><span class="num">+ fundos</span><span class="cap">ex.: Hans 95 negociou CDB do Master</span></div>
 </div>
 
-<p class="small">Arestas: emitiu_CDB/LF · aportou_em. Fonte: Agência Brasil; CNN Brasil; Metrópoles; CVM.</p>
+> Diferença crucial: o financiador (a previdência, o investidor PF) pôs **dinheiro de verdade**. Esse caixa é que alimentou a originação dos empréstimos fictícios.
+
+<p class="small">Fonte: Agência Brasil; CNN Brasil; Metrópoles; CVM.</p>
 
 ---
 
-# O Master Liga Tudo: o ciclo fecha o laço
+# O Master liga tudo: o ciclo fecha o laço
 
-Não são grafos separados — são uma engrenagem só, soldada no **Banco Master**.
+Os dois grafos **não vivem separados** — o ponto de solda é o próprio banco. O caixa entra pelo CDB (passivo), é emprestado às fachadas, vira aplicação nos fundos da teia, e o fundo **recompra o crédito do Master** — fechando o ciclo.
 
 <div class="cycle">
 <div class="node"><span class="t">Investidores · RioPrevidência · fundos</span><span class="s">compram CDB / LF</span></div>
@@ -133,27 +229,45 @@ Não são grafos separados — são uma engrenagem só, soldada no **Banco Maste
 <div class="node"><span class="t">SDG II recompra os créditos do próprio Master</span><span class="s">o risco sai do balanço (ativo)</span></div>
 </div>
 
-<div class="loop">↩ o crédito podre fica enterrado no fundo — o CDB é a entrada de caixa, o SDG II é a saída</div>
+<div class="loop">↩ O CDB é a <strong>entrada</strong> de caixa; o SDG II é a <strong>saída</strong> onde o crédito podre é enterrado. Master = motor · terceiros = lavanderia.</div>
+
+---
+
+# Exemplo trabalhado: seguindo o dinheiro
+
+Cada peça abaixo é **real e pública**. Juntas, mostram o mecanismo do começo ao fim.
+
+<div class="cycle">
+<div class="node"><span class="t">1 · Captação (passivo)</span><span class="s">RioPrevidência aplica R$ 970 mi em Letras Financeiras do Master (out/2023–jul/2024) → Master tem caixa</span></div>
+<div class="node master"><span class="t">2 · Originação</span><span class="s">o Master concede crédito a empresas ligadas — ex.: Lormont (de Nelson Tanure)</span></div>
+<div class="node"><span class="t">3 · Ocultação (ativo)</span><span class="s">27/02/2024 — o próprio Banco Master cede ao SDG II uma CCB do Lormont por R$ 102,438 mi: o crédito sai do balanço</span></div>
+<div class="node"><span class="t">4 · O risco vira do fundo</span><span class="s">o eventual calote agora é do cotista do SDG II — não do Master, não aparece no BC</span></div>
+<div class="node"><span class="t">5 · Pode não valer nada</span><span class="s">o auditor não comprova o lastro de 62% dos créditos do SDG II → abstenção de opinião</span></div>
+</div>
+
+<p class="small"><strong>Honestidade metodológica:</strong> não afirmamos que o real específico da RioPrev virou o crédito específico do Lormont — o elo é o <em>ciclo</em>, soldado no Master. Cada cifra tem fonte pública (CVM/FNET; Agência Brasil).</p>
 
 ---
 
 # O CDB "chega" no SDG II?
 
+Pergunta natural — e a resposta exige precisão. São **dois sentidos**:
+
 <div class="cols">
 <div class="ba-before">
-<span class="lbl">DIRETO (como ativo): NÃO</span>
+<span class="lbl">DIRETO (como ativo do fundo): NÃO</span>
 
 - O SDG II guarda **créditos** (R$ 3,36 bi), não CDB
 - Na DF, o Master só aparece como **cedente** — nunca como emissor de CDB
 - ~R$ 50 mi em CDB (dez/2024), zero em vários meses — não identificado como do Master
-- O CDB do Master vive em **outros** veículos (Hans 95) e nos financiadores externos
+- O CDB do Master vive em **outros** veículos (ex.: Hans 95) e nos financiadores externos
 </div>
 <div class="ba-after">
 <span class="lbl">INDIRETO (pelo ciclo): SIM</span>
 
 - O SDG II está na **ponta-ativo** do mesmo laço que o CDB financia
 - O caixa do CDB virou os **R$ 1,1 bi** cedidos direto pelo Master — que o SDG II recomprou
-- É o elo essencial entre os dois grafos
+- É o **elo essencial** entre os dois grafos
 </div>
 </div>
 
@@ -163,16 +277,16 @@ Não são grafos separados — são uma engrenagem só, soldada no **Banco Maste
 
 ---
 
-# Prova de Conceito: reconstruímos o SDG II
+# Prova de conceito: reconstruímos o SDG II
 
-Reportagem da Folha/ICL descreve o **Fundo SDG II** como receptor de créditos podres do Master. Reproduzimos **10 das 11 afirmações quantitativas** a partir exclusivamente de dados públicos da CVM.
+A reportagem (Folha/ICL) descreve o **SDG II** como o receptor dos créditos podres. Nós reproduzimos, **só com dado público da CVM**, 10 das 11 afirmações quantitativas da matéria.
 
 <div class="pill alert">10 de 11 afirmações reproduzidas a partir de fonte pública</div>
 
-**Fontes utilizadas:**
+**Duas fontes, dois níveis:**
 
-- **Informe Mensal de FIDC** — dados abertos e agregados (CVM)
-- **Demonstrações Financeiras via API FNET** — carteira nominal (id 963178)
+- **Informe Mensal de FIDC** (dados abertos) → os **agregados** (PL, nº de cotistas, inadimplência)
+- **Demonstrações Financeiras via API do FNET** → a **carteira nominal** (cedente, devedor, debênture)
 
 <p class="small">Fonte: CVM; FNET; Folha de S.Paulo / ICL.</p>
 
@@ -180,7 +294,7 @@ Reportagem da Folha/ICL descreve o **Fundo SDG II** como receptor de créditos p
 
 <!-- _class: dense -->
 
-# Os Números Batem
+# Os números batem
 
 | Afirmação da matéria | Reconstruído (fonte pública) |
 |---|---|
@@ -196,7 +310,7 @@ Reportagem da Folha/ICL descreve o **Fundo SDG II** como receptor de créditos p
 
 ---
 
-# O Carimbo da Fraude
+# O carimbo da fraude
 
 O auditor emitiu **ABSTENÇÃO DE OPINIÃO** sobre a Demonstração Financeira de 2024 do SDG II.
 
@@ -218,7 +332,7 @@ O auditor emitiu **ABSTENÇÃO DE OPINIÃO** sobre a Demonstração Financeira d
 
 ---
 
-# O Motor: a tese vira um problema de grafo
+# O motor: a tese vira um problema de grafo
 
 <div class="stack">
 <div class="band top"><span class="t">Ingestão</span><span class="s">Fontes públicas: CVM · BACEN · Receita Federal</span></div>
@@ -233,33 +347,29 @@ O auditor emitiu **ABSTENÇÃO DE OPINIÃO** sobre a Demonstração Financeira d
 
 ---
 
-# Modelo de Grafo: nós e arestas tipadas
+# Modelo de grafo: nós e arestas tipadas
 
 | Tipo de nó | Identificador |
 |---|---|
-| Pessoa física | CPF |
-| Empresa | CNPJ |
+| Pessoa física · Empresa | CPF · CNPJ |
 | Fundo (FI / FIDC / FIP / FII) | CNPJ CVM |
-| Instituição financeira | CNPJ / ISPB |
-| Prestador (admin · gestor · custodiante · auditor) | CNPJ |
-| Órgão público / RPPS | CNPJ |
-| Título (CDB · LF · debênture · CCB · cota) | ISIN / código |
+| Instituição financeira · Prestador (admin/gestor/custodiante/auditor) | CNPJ / ISPB |
+| Órgão público / RPPS · Título (CDB/LF/debênture/CCB/cota) | CNPJ · ISIN |
 
 | Aresta | Semântica |
 |---|---|
 | `é_sócio_de` · `administra` · `gere` · `custodia` | controle e governança |
-| `é_cotista_de` · `aportou_em` | participação em fundo |
+| `é_cotista_de` · `aportou_em` | participação / financiamento |
 | `cedeu_crédito_a` · `é_devedor_de` · `sacado` | fluxo de crédito |
 | `possui_título_de` · `emitiu` · `comprou_carteira_de` | instrumento financeiro |
-| `punido_em` | evidência regulatória |
 
-<p class="small">Cada aresta carrega: <strong>data · valor · fonte · carimbo de evidência</strong> — público / reportagem / restrito.</p>
+<p class="small">Cada aresta carrega: <strong>data · valor · fonte · carimbo de evidência</strong> (público / reportagem / restrito).</p>
 
 ---
 
 <!-- _class: dense -->
 
-# Os Detectores: onde está a fraude
+# Os detectores: onde está a fraude
 
 | Assinatura de fraude | Algoritmo | Exemplo no caso |
 |---|---|---|
@@ -277,7 +387,7 @@ O auditor emitiu **ABSTENÇÃO DE OPINIÃO** sobre a Demonstração Financeira d
 
 <!-- _class: dense -->
 
-# Fontes de Dados — tudo público e programático
+# Fontes de dados — tudo público e programático
 
 | Fonte | O que dá | Status |
 |---|---|---|
@@ -285,11 +395,9 @@ O auditor emitiu **ABSTENÇÃO DE OPINIÃO** sobre a Demonstração Financeira d
 | CVM `registro_fundo.csv` (RCVM 175) | Administrador + gestor de todos os fundos (incl. FIDC) | Público |
 | CVM Informe Mensal de FIDC | Carteira agregada, nº de cotistas, inadimplência | Público |
 | CVM CDA (FI/555) | Carteira por ativo + flag `emissor_ligado` | Público |
-| CVM Informe Diário | PL / captação / resgate diário | Público |
-| CVM PAS | Processos sancionadores | Público |
+| CVM Informe Diário · PAS | PL/captação/resgate diário · processos sancionadores | Público |
 | FNET (API) | Demonstrações Financeiras = carteira nominal + parecer | Público |
-| BACEN IF.data | Balanços trimestrais (Master, BRB, Letsbank) | Público |
-| CADPREV / DAIR | Aplicações dos RPPS (RioPrevidência etc.) | Público |
+| BACEN IF.data · CADPREV/DAIR | Balanços trimestrais · aplicações dos RPPS | Público |
 | Empréstimo Master → fachada | — | Sigilo bancário *(aflora via FIDC)* |
 
 <p class="small">Nem tudo do Master foi fraude — por isso o método <strong>PONTUA</strong> suspeita, não rotula.</p>
@@ -310,7 +418,7 @@ O auditor emitiu **ABSTENÇÃO DE OPINIÃO** sobre a Demonstração Financeira d
 
 ---
 
-# Rigor e Limitações
+# Rigor e limitações
 
 - <span class="pill">Estrutura ≠ culpa</span> O grafo mostra relações cadastrais; o score sinaliza; a Demonstração Financeira e o PAS **confirmam**.
 - <span class="pill">Score é triagem</span> Não acusa — validado com ground truth (precisão/recall nos fundos já confirmados).
@@ -323,7 +431,7 @@ O auditor emitiu **ABSTENÇÃO DE OPINIÃO** sobre a Demonstração Financeira d
 
 ---
 
-# Fontes & Referências
+# Fontes & referências
 
 **Dados públicos**
 - CVM Dados Abertos — `registro_fundo.csv`, Informe Mensal de FIDC, CDA, Informe Diário, PAS

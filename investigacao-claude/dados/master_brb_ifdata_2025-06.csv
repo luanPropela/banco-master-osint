@@ -1,0 +1,14 @@
+instituicao,conglomerado,uf,data_base,indicador,valor_rs_mil,fonte
+Banco Master,MASTER - PRUDENCIAL,RJ,2025-06,Ativo Total,91202202,IF.data BACEN (portal)
+Banco Master,MASTER - PRUDENCIAL,RJ,2025-06,Carteira de Crédito,31267275,IF.data BACEN (portal)
+Banco Master,MASTER - PRUDENCIAL,RJ,2025-06,Títulos e Valores Mobiliários,21646941,IF.data BACEN (portal)
+Banco Master,MASTER - PRUDENCIAL,RJ,2025-06,Passivo Exigível,82384778,IF.data BACEN (portal)
+Banco Master,MASTER - PRUDENCIAL,RJ,2025-06,Captações,66798596,IF.data BACEN (portal)
+Banco Master,MASTER - PRUDENCIAL,RJ,2025-06,Patrimônio Líquido,8817423,IF.data BACEN (portal)
+Banco Master,MASTER - PRUDENCIAL,RJ,2025-06,Lucro Líquido,205652,IF.data BACEN (portal)
+Banco Master,MASTER - PRUDENCIAL,RJ,2025-06,Índice de Basileia,,NI (não informado) — IF.data
+BRB,BRB - PRUDENCIAL,DF,2025-06,Ativo Total,76145656,IF.data BACEN (portal)
+BRB,BRB - PRUDENCIAL,DF,2025-06,Carteira de Crédito,58590721,IF.data BACEN (portal)
+BRB,BRB - PRUDENCIAL,DF,2025-06,Captações,63459202,IF.data BACEN (portal)
+BRB,BRB - PRUDENCIAL,DF,2025-06,Patrimônio Líquido,4208395,IF.data BACEN (portal)
+BRB,BRB - PRUDENCIAL,DF,2025-06,Índice de Basileia,13.91,IF.data BACEN (% — portal)

@@ -64,6 +64,16 @@ R$ 35 mi (out/2023) → **R$ 1,29 bi (jul/2024, 16 RPPS)** → platô **R$ 1,5 b
    inflando o balanço do banco público). *Banco Master* em si **não está na CVM** (é IF do BACEN) — seu balanço
    só viria do IF.data (fora do ar); usamos os números públicos da liquidação (R$80bi/R$4mi) no contrafactual.
    Outros bancos públicos (Banese, Banrisul, Banestes…): mesma receita CVM/IF.data — a varrer.
+
+   **Atualização — balanço do Banco Master OBTIDO via IF.data (portal, não OData).** A API OData segue
+   quebrada, mas o **site** IF.data funciona (backend distinto) e é dirigível por navegador (como os scrapers
+   Selenium do GitHub). Balanço do **Banco Master Prudencial (06/2025)**: **Ativo R$ 91,2 bi · PL reportado
+   +R$ 8,8 bi · Captações R$ 66,8 bi · TVM R$ 21,6 bi · Carteira R$ 31,3 bi · Basileia NI (não informava!)**.
+   Contraste com a liquidação (R$ 4 mi caixa, rombo ~R$ 50 bi): o **gap reportado→real do PL ≈ R$ 59 bi** é a
+   medida do golpe; os **R$ 21,6 bi em TVM** são onde as cotas de FIDC/ativos fictícios se escondiam. BRB (06/2025)
+   confirma o dado da CVM (carteira R$ 58,6 bi). Dados em `dados/master_brb_ifdata_2025-06.csv` e contrafactual
+   atualizado em `dados/master_balanco_contrafactual.csv`. **Conclusão IF.data: não há API/biblioteca alternativa
+   — OData é a única API (quebrada); a via que funciona é automação do portal (export CSV), que usamos.**
 4. **EFPC (fundos fechados)** — imprensa: os grandes ficaram de fora; fora do DAIR (seria via PREVIC). Baixo risco.
 5. **CDB pessoa física/PJ e depositantes** — sigilo bancário; só o lado institucional (RPPS/fundos) é público.
 

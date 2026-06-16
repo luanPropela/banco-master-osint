@@ -1,9 +1,13 @@
 metrica,reportado_declarado,contrafactual_ajustado_fraude,unidade,fonte
-Ativo total,80.0,28.0,R$ bi,"BACEN (liquidação 18/11/2025); contrafactual = reportado - rombo"
-Caixa real,0.004,0.004,R$ bi,BACEN (R$ 4 mi)
-Patrimonio liquido,positivo (reportado solvente),-50.0,R$ bi,"PF/BC — rombo R$ 50-52 bi => PL real negativo"
+Ativo total,91.2,~30.0,R$ bi,"IF.data BACEN (Master Prudencial 06/2025); contrafactual = reportado - rombo"
+Caixa real,0.004,0.004,R$ bi,BACEN (R$ 4 mi na liquidação 18/11/2025)
+Patrimonio liquido,8.8,-50.0,R$ bi,"IF.data 06/2025 reportava +R$8,8bi; rombo R$50-52bi => PL real negativo"
+Captacoes (CDB/LF),66.8,66.8,R$ bi,"IF.data 06/2025 — a pirâmide de captação"
+Titulos e Valores Mobiliarios,21.6,?,R$ bi,"IF.data 06/2025 — onde se escondiam cotas de FIDC/ativos fictícios"
+Indice de Basileia,NI (nao informado),negativo,—,"IF.data 06/2025 — o banco nem reportava Basileia"
 Rombo estimado,0.0,51.0,R$ bi,Polícia Federal / Banco Central
 Custo ao FGC,0.0,40.0,R$ bi,FGC (desembolso p/ cobrir depositantes)
 Carteiras ficticias vendidas ao BRB (via Tirreno),12.2,0.0,R$ bi,"PF/Metrópoles — contratos fabricados, valor real ~0"
 Creditos podres ocultados no SDG II,0.0,3.6,R$ bi,"DF SDG II (FNET) / Folha — 62% sem lastro"
-Alavancagem caixa (Ativo / Caixa),20000.0,20000.0,vezes,"cálculo: 80 bi / 4 mi"
+Alavancagem caixa (Ativo / Caixa),22800.0,22800.0,vezes,"cálculo: 91,2 bi / 4 mi"
+Gap reportado->real (PL),—,~59.0,R$ bi,"PL reportado +8,8 - PL real ~-50 = medida do golpe"

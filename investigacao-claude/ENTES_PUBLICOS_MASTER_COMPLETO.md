@@ -55,10 +55,15 @@ R$ 35 mi (out/2023) → **R$ 1,29 bi (jul/2024, 16 RPPS)** → platô **R$ 1,5 b
    mesma entidade econômica, registro CADPREV pelo governo.)
 2. **Completude estadual — ✅ varrida.** Só **6 governos estaduais** têm LF do Master: RJ (R$ 568 mi), Amapá
    (R$ 435 mi), Roraima, Rondônia, Tocantins, Pará. **SP estado (SPPREV) NÃO tem** — não há grande estado faltando.
-3. **BRB / bancos públicos — relação distinta, documentada.** BRB **comprou** R$ 12,2 bi em carteiras do Master
-   (via Tirreno) — não é "consumo de LF/CDB" como investidor; é a porta de saída de caixa. Fonte: decisão
-   judicial + PF + fato relevante CVM. **IF.data OData do BACEN segue instável** (400/500 em 4 tentativas) — a
-   re-tentar p/ o balanço; mas o R$ 12,2 bi é fato público consolidado.
+3. **BRB / bancos públicos — ✅ BALANÇO BAIXADO (via CVM, não IF.data).** O IF.data OData do BACEN segue
+   **quebrado** (root 200, mas todas as queries e o `$metadata` dão 500 — erro de servidor, não sintaxe).
+   Pivot para a **CVM CIA_ABERTA (DFP/ITR)**, onde o BRB é emissor listado (CD_CVM 14206, CNPJ 00.000.208/0001-00):
+   puxei o balanço trimestral (`dados/brb_balanco_cvm.csv`). **A carteira de "Operações de Crédito" salta de
+   R$ 38,8 bi (3T2024) → R$ 54,7 bi (1T2025), +~R$ 18 bi** — exatamente quando comprou as carteiras do Master
+   (jul/2024–out/2025). É a impressão digital, em dado público, da relação de R$ 12,2 bi (ativos fictícios
+   inflando o balanço do banco público). *Banco Master* em si **não está na CVM** (é IF do BACEN) — seu balanço
+   só viria do IF.data (fora do ar); usamos os números públicos da liquidação (R$80bi/R$4mi) no contrafactual.
+   Outros bancos públicos (Banese, Banrisul, Banestes…): mesma receita CVM/IF.data — a varrer.
 4. **EFPC (fundos fechados)** — imprensa: os grandes ficaram de fora; fora do DAIR (seria via PREVIC). Baixo risco.
 5. **CDB pessoa física/PJ e depositantes** — sigilo bancário; só o lado institucional (RPPS/fundos) é público.
 

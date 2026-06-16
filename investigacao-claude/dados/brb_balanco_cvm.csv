@@ -1,0 +1,126 @@
+data,base,conta,vl
+2023-03-31,con,Ativo_Total,42770349.0
+2023-03-31,con,Credito::Operações de Crédito,32632938.0
+2023-03-31,con,Credito::Provisão para Perdas Esperadas Associadas ao Risco de Crédito,-992311.0
+2023-03-31,con,Credito::Provisão para Perdas Esperadas Associadas ao Risco de Crédito de Operações de Arrendamento,0.0
+2023-06-30,con,Ativo_Total,46415952.0
+2023-06-30,con,Credito::Operações de Crédito,34342094.0
+2023-06-30,con,Credito::Provisão para Perdas Esperadas Associadas ao Risco de Crédito,-800322.0
+2023-06-30,con,Credito::Provisão para Perdas Esperadas Associadas ao Risco de Crédito de Operações de Arrendamento,0.0
+2023-09-30,con,Ativo_Total,48046232.0
+2023-09-30,con,Credito::Operações de Crédito,35631448.0
+2023-09-30,con,Credito::Provisão para Perdas Esperadas Associadas ao Risco de Crédito,-1168233.0
+2023-09-30,con,Credito::Provisão para Perdas Esperadas Associadas ao Risco de Crédito de Operações de Arrendamento,0.0
+2023-03-31,con,PL,710296.0
+2023-06-30,con,PL,728200.0
+2023-09-30,con,PL,735385.0
+2023-03-31,ind,Ativo_Total,41379888.0
+2023-03-31,ind,Credito::Operações de Crédito,28812875.0
+2023-03-31,ind,Credito::Provisão para Perdas Esperadas Associadas ao Risco de Crédito,-623578.0
+2023-03-31,ind,Credito::Provisão para Perdas Esperadas Associadas ao Risco de Crédito de Operações de Arrendamento,0.0
+2023-03-31,ind,Credito::Outros Créditos,1527845.0
+2023-03-31,ind,Credito::Créditos Tributários,586820.0
+2023-06-30,ind,Ativo_Total,45374575.0
+2023-06-30,ind,Credito::Operações de Crédito,29545292.0
+2023-06-30,ind,Credito::Provisão para Perdas Esperadas Associadas ao Risco de Crédito,-627322.0
+2023-06-30,ind,Credito::Provisão para Perdas Esperadas Associadas ao Risco de Crédito de Operações de Arrendamento,0.0
+2023-06-30,ind,Credito::Outros Créditos,1745455.0
+2023-06-30,ind,Credito::Créditos Tributários,592627.0
+2023-09-30,ind,Ativo_Total,47273557.0
+2023-09-30,ind,Credito::Operações de Crédito,30357496.0
+2023-09-30,ind,Credito::Provisão para Perdas Esperadas Associadas ao Risco de Crédito,-662275.0
+2023-09-30,ind,Credito::Provisão para Perdas Esperadas Associadas ao Risco de Crédito de Operações de Arrendamento,0.0
+2023-09-30,ind,Credito::Outros Créditos,1567032.0
+2023-09-30,ind,Credito::Créditos Tributários,603767.0
+2023-03-31,ind,"Credito::Recursos de Letras Hipotecárias, Imobiliárias, de Créditos e Similares",0.0
+2023-03-31,ind,PL,695970.0
+2023-06-30,ind,"Credito::Recursos de Letras Hipotecárias, Imobiliárias, de Créditos e Similares",0.0
+2023-06-30,ind,PL,709321.0
+2023-09-30,ind,"Credito::Recursos de Letras Hipotecárias, Imobiliárias, de Créditos e Similares",0.0
+2023-09-30,ind,PL,716163.0
+2024-03-31,con,Ativo_Total,50335324.0
+2024-03-31,con,Credito::Operações de Crédito,36494559.0
+2024-03-31,con,Credito::Provisão para Perdas Esperadas Associadas ao Risco de Crédito,-1160134.0
+2024-03-31,con,Credito::Provisão para Perdas Esperadas Associadas ao Risco de Crédito de Operações de Arrendamento,0.0
+2024-06-30,con,Ativo_Total,53716835.0
+2024-06-30,con,Credito::Operações de Crédito,36201296.0
+2024-06-30,con,Credito::Provisão para Perdas Esperadas Associadas ao Risco de Crédito,-1127464.0
+2024-06-30,con,Credito::Provisão para Perdas Esperadas Associadas ao Risco de Crédito de Operações de Arrendamento,0.0
+2024-09-30,con,Ativo_Total,56786394.0
+2024-09-30,con,Credito::Operações de Crédito,38825123.0
+2024-09-30,con,Credito::Provisão para Perdas Esperadas Associadas ao Risco de Crédito,-973300.0
+2024-09-30,con,Credito::Provisão para Perdas Esperadas Associadas ao Risco de Crédito de Operações de Arrendamento,0.0
+2024-03-31,con,PL,769830.0
+2024-06-30,con,PL,778164.0
+2024-09-30,con,PL,785876.0
+2024-03-31,ind,Ativo_Total,48956942.0
+2024-03-31,ind,Credito::Operações de Crédito,31499981.0
+2024-03-31,ind,Credito::Provisão para Perdas Esperadas Associadas ao Risco de Crédito,-1010114.0
+2024-03-31,ind,Credito::Provisão para Perdas Esperadas Associadas ao Risco de Crédito de Operações de Arrendamento,0.0
+2024-03-31,ind,Credito::Outros Créditos,1698280.0
+2024-03-31,ind,Credito::Créditos Tributários,675755.0
+2024-06-30,ind,Ativo_Total,52968283.0
+2024-06-30,ind,Credito::Operações de Crédito,31316532.0
+2024-06-30,ind,Credito::Provisão para Perdas Esperadas Associadas ao Risco de Crédito,-1168275.0
+2024-06-30,ind,Credito::Provisão para Perdas Esperadas Associadas ao Risco de Crédito de Operações de Arrendamento,0.0
+2024-06-30,ind,Credito::Outros Créditos,2388697.0
+2024-06-30,ind,Credito::Créditos Tributários,833586.0
+2024-09-30,ind,Ativo_Total,55454106.0
+2024-09-30,ind,Credito::Operações de Crédito,33182262.0
+2024-09-30,ind,Credito::Provisão para Perdas Esperadas Associadas ao Risco de Crédito,-670364.0
+2024-09-30,ind,Credito::Provisão para Perdas Esperadas Associadas ao Risco de Crédito de Operações de Arrendamento,0.0
+2024-09-30,ind,Credito::Outros Créditos,2320685.0
+2024-09-30,ind,Credito::Créditos Tributários,751702.0
+2024-03-31,ind,"Credito::Recursos de Letras Hipotecárias, Imobiliárias, de Créditos e Similares",0.0
+2024-03-31,ind,PL,750432.0
+2024-06-30,ind,"Credito::Recursos de Letras Hipotecárias, Imobiliárias, de Créditos e Similares",0.0
+2024-06-30,ind,PL,753455.0
+2024-09-30,ind,"Credito::Recursos de Letras Hipotecárias, Imobiliárias, de Créditos e Similares",0.0
+2024-09-30,ind,PL,761042.0
+2025-03-31,con,Ativo_Total,70727409.0
+2025-03-31,con,Credito::Operações de Crédito,54732647.0
+2025-03-31,con,Credito::Provisão para Perdas Esperadas Associadas ao Risco de Crédito,-1017708.0
+2025-03-31,con,Credito::Provisão para Perdas Esperadas Associadas ao Risco de Crédito de Operações de Arrendamento,0.0
+2025-03-31,con,PL,809923.0
+2025-03-31,ind,Ativo_Total,68816798.0
+2025-03-31,ind,Credito::Operações de Crédito,46299077.0
+2025-03-31,ind,Credito::Provisão para Perdas Esperadas Associadas ao Risco de Crédito,-942643.0
+2025-03-31,ind,Credito::Provisão para Perdas Esperadas Associadas ao Risco de Crédito de Operações de Arrendamento,0.0
+2025-03-31,ind,Credito::Outros Créditos,3059668.0
+2025-03-31,ind,Credito::Créditos Tributários,0.0
+2025-06-30,ind,Ativo_Total,74509301.0
+2025-06-30,ind,Credito::Operações de Crédito,51584205.0
+2025-06-30,ind,Credito::Provisão para Perdas Esperadas Associadas ao Risco de Crédito,-1182407.0
+2025-06-30,ind,Credito::Provisão para Perdas Esperadas Associadas ao Risco de Crédito de Operações de Arrendamento,0.0
+2025-06-30,ind,Credito::Outros Créditos,2848286.0
+2025-06-30,ind,Credito::Créditos Tributários,0.0
+2025-03-31,ind,"Credito::Recursos de Letras Hipotecárias, Imobiliárias, de Créditos e Similares",11398995.0
+2025-03-31,ind,PL,793146.0
+2025-06-30,ind,"Credito::Recursos de Letras Hipotecárias, Imobiliárias, de Créditos e Similares",12095542.0
+2025-06-30,ind,PL,808325.0
+2023-12-31,con,Ativo_Total,49960107.0
+2023-12-31,con,Credito::Operações de Crédito,36320485.0
+2023-12-31,con,Credito::Provisão para Perdas Esperadas Associadas ao Risco de Crédito,-982648.0
+2023-12-31,con,Credito::Provisão para Perdas Esperadas Associadas ao Risco de Crédito de Operações de Arrendamento,0.0
+2023-12-31,con,PL,747503.0
+2023-12-31,ind,Ativo_Total,49184951.0
+2023-12-31,ind,Credito::Operações de Crédito,31221174.0
+2023-12-31,ind,Credito::Provisão para Perdas Esperadas Associadas ao Risco de Crédito,-784879.0
+2023-12-31,ind,Credito::Provisão para Perdas Esperadas Associadas ao Risco de Crédito de Operações de Arrendamento,0.0
+2023-12-31,ind,Credito::Outros Créditos,2059408.0
+2023-12-31,ind,Credito::Créditos Tributários,607668.0
+2023-12-31,ind,"Credito::Recursos de Letras Hipotecárias, Imobiliárias, de Créditos e Similares",0.0
+2023-12-31,ind,PL,730516.0
+2024-12-31,con,Ativo_Total,62504412.0
+2024-12-31,con,Credito::Operações de Crédito,46284341.0
+2024-12-31,con,Credito::Provisão para Perdas Esperadas Associadas ao Risco de Crédito,-877329.0
+2024-12-31,con,Credito::Provisão para Perdas Esperadas Associadas ao Risco de Crédito de Operações de Arrendamento,0.0
+2024-12-31,con,PL,787558.0
+2024-12-31,ind,Ativo_Total,61002362.0
+2024-12-31,ind,Credito::Operações de Crédito,40036767.0
+2024-12-31,ind,Credito::Provisão para Perdas Esperadas Associadas ao Risco de Crédito,-635281.0
+2024-12-31,ind,Credito::Provisão para Perdas Esperadas Associadas ao Risco de Crédito de Operações de Arrendamento,0.0
+2024-12-31,ind,Credito::Outros Créditos,2565526.0
+2024-12-31,ind,Credito::Créditos Tributários,743318.0
+2024-12-31,ind,"Credito::Recursos de Letras Hipotecárias, Imobiliárias, de Créditos e Similares",0.0
+2024-12-31,ind,PL,772972.0

@@ -1,13 +1,15 @@
 # Ambiente isolado da investigação de reconstrução da fraude (branch analise-reconstrucao-claude).
 # Criar:   conda env create -f investigacao-claude/environment.yml
-# Usar:    conda run -n master-osint python <script>
-#   (ou)   conda activate master-osint
+# Usar (SEMPRE assim — saída ao vivo, sem buffering):
+#   source ~/miniconda3/etc/profile.d/conda.sh && conda activate master-osint && python -u <script>
+#   NÃO use `conda run` (ele bufferiza/oculta o output durante a execução).
 name: master-osint
 channels:
   - conda-forge
 dependencies:
   - python=3.12
-  - pandas
+  - polars          # manipulação de dados — PADRÃO do projeto (use polars, não pandas)
+  - pandas          # só para compatibilidade pontual (ex.: ler zips legados); prefira polars
   - requests
   - openpyxl        # ler o dados_grafo_banco_master.xlsx do Túlio
   - beautifulsoup4  # parse de índices de diretório e HTML CVM

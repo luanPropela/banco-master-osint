@@ -19,10 +19,12 @@ MKS como cotista — provou-se não pública). Ver `RECONSTRUCAO_SDG2.md`.
   ```bash
   conda env create -f investigacao-claude/environment.yml
   ```
-- **Rode sempre a partir da RAIZ do repo** (não de dentro da pasta) — os scripts usam `data/` (na raiz,
-  gitignored) como cache de download:
+- **Manipulação de dados: use `polars` (não pandas)** — é o padrão do projeto.
+- **Rode sempre da RAIZ do repo, com `conda activate` (NUNCA `conda run` — ele bufferiza o output)**;
+  use `python -u` para saída ao vivo. Os scripts usam `data/` (na raiz, gitignored) como cache:
   ```bash
-  conda run -n master-osint --no-capture-output python investigacao-claude/recon/<script>.py
+  source ~/miniconda3/etc/profile.d/conda.sh && conda activate master-osint
+  python -u investigacao-claude/recon/<script>.py
   ```
 
 ## Fontes de dados (mapa) — qual usar para quê

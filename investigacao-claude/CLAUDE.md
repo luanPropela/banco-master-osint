@@ -6,11 +6,12 @@ Abaixo só as regras operacionais que, se ignoradas, causam erro nesta pasta (Wi
 
 ## Regras que evitam erro
 
-- **Rode da RAIZ do repo**, via conda, nunca de dentro da pasta:
-  `conda run -n master-osint --no-capture-output python investigacao-claude/recon/<x>.py`
+- **YOU MUST rodar com `conda activate`, NUNCA `conda run`** (`conda run` bufferiza e esconde o output
+  durante a execução). Sempre, da **raiz do repo**:
+  `source ~/miniconda3/etc/profile.d/conda.sh && conda activate master-osint && python -u investigacao-claude/recon/<x>.py`
   (os scripts gravam cache em `data/` na raiz). Crie o env com `environment.yml`.
-- **YOU MUST: nunca passe script multilinha em `conda run ... python -c "..."`** — falha com
-  *"scripts where arguments contain newlines not implemented"*. **Escreva o script em arquivo** e rode-o.
+- **YOU MUST usar `polars` para dados, não `pandas`** — é o padrão do projeto.
+- **Escreva o script em arquivo** e rode-o; não passe código multilinha em `python -c "..."`.
 - **IMPORTANT: dependências só via `environment.yml`** (recrie/atualize o env); não use `pip install`
   fora do conda env, senão quebra o isolamento.
 - **Chrome headless no Windows** exige **caminho Windows absoluto** em `--print-to-pdf` (`C:\...\x.pdf`);

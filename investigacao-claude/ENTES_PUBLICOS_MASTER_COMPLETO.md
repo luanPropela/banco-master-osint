@@ -45,16 +45,26 @@ R$ 35 mi (out/2023) → **R$ 1,29 bi (jul/2024, 16 RPPS)** → platô **R$ 1,5 b
 | Maceió, Cajamar | ✅ confirmados |
 | RioPrevidência ~R$ 960 mi (LF) | ❌ **não está no DAIR** (ver gaps) |
 
-## GAPS — o que falta para ter "tudo" (e onde buscar)
-1. **RioPrevidência (RJ)** — ~R$ 960 mi em LF (+ R$ 2,01 bi em fundos). Autarquia estadual **fora do DAIR**.
-   → Fonte: **TCE-RJ** / portal da própria RioPrev / autos da Op. Barco de Papel (PF).
-2. **Bancos públicos** — relação diferente (compraram ativos do Master, não investiram em LF):
-   **BRB** comprou R$ 12,2 bi em carteiras (via Tirreno). → Fonte: **BACEN IF.data** (estava em HTTP 500, re-tentar)
-   + fato relevante CVM + decisão judicial. Checar também outros (Banese, Banrisul, BRDE…).
-3. **Outras autarquias estaduais de previdência** estruturadas como a RioPrev (ex.: SPPREV/SP) podem estar fora
-   do DAIR — varrer por nome.
-4. **EFPC (fundos fechados de estatais)** — a imprensa diz que os grandes ficaram de fora; confirmar via PREVIC.
-5. **CDB (pessoa física/PJ)** e depositantes — sigilo bancário; só o lado institucional (fundos/RPPS) é público.
+## GAPS — RESOLVIDOS após validação
+1. **RioPrevidência (RJ) — ✅ JÁ ESTÁ nos dados.** O DAIR arquiva por *ente federativo*: a RioPrev aparece como
+   **"Governo do Estado do Rio de Janeiro"** (CNPJ 42.498.600/0001-71; "RioPrevidência" é a unidade gestora).
+   Carteira total ~R$ 10–13 bi; **LF do Master: R$ 120 mi (11/2023) → R$ 568 mi (11/2025, 5,9%) → R$ 0 (12/2025)**
+   — o zeramento **confirma a reversão via precatórios** noticiada. Papéis: "etra Financeira Master" 1/2/3.
+   (Está no Tier-1 acima como "Gov. Estado do RJ". A notícia fala em ~R$ 960 mi — provável bruto/cumulativo;
+   o DAIR mostra a posição líquida de fim de mês, pico R$ 568 mi. CNPJ do ente ≠ CNPJ da autarquia 03.066.219 —
+   mesma entidade econômica, registro CADPREV pelo governo.)
+2. **Completude estadual — ✅ varrida.** Só **6 governos estaduais** têm LF do Master: RJ (R$ 568 mi), Amapá
+   (R$ 435 mi), Roraima, Rondônia, Tocantins, Pará. **SP estado (SPPREV) NÃO tem** — não há grande estado faltando.
+3. **BRB / bancos públicos — relação distinta, documentada.** BRB **comprou** R$ 12,2 bi em carteiras do Master
+   (via Tirreno) — não é "consumo de LF/CDB" como investidor; é a porta de saída de caixa. Fonte: decisão
+   judicial + PF + fato relevante CVM. **IF.data OData do BACEN segue instável** (400/500 em 4 tentativas) — a
+   re-tentar p/ o balanço; mas o R$ 12,2 bi é fato público consolidado.
+4. **EFPC (fundos fechados)** — imprensa: os grandes ficaram de fora; fora do DAIR (seria via PREVIC). Baixo risco.
+5. **CDB pessoa física/PJ e depositantes** — sigilo bancário; só o lado institucional (RPPS/fundos) é público.
+
+**Conclusão de completude:** o canal **dinheiro público investidor (RPPS, incl. RioPrev) está integralmente
+mapeado e baixado** (DAIR, 33 entes, R$ 1,53 bi Tier-1). O único item não-baixado programaticamente é o
+**balanço do BRB no IF.data** (API instável) — e o BRB é relação de *compra*, com o valor (R$ 12,2 bi) já público.
 
 ## Como reproduzir
 ```bash

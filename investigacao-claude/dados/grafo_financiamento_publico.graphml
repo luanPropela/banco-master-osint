@@ -1,0 +1,211 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d10" for="edge" attr.name="instrumento" attr.type="string"/>
+<key id="d9" for="edge" attr.name="pct_carteira" attr.type="double"/>
+<key id="d8" for="edge" attr.name="detalhe" attr.type="string"/>
+<key id="d7" for="edge" attr.name="valor" attr.type="double"/>
+<key id="d6" for="edge" attr.name="rel" attr.type="string"/>
+<key id="d5" for="node" attr.name="congelou" attr.type="boolean"/>
+<key id="d4" for="node" attr.name="pct" attr.type="double"/>
+<key id="d3" for="node" attr.name="valor" attr.type="double"/>
+<key id="d2" for="node" attr.name="valor" attr.type="long"/>
+<key id="d1" for="node" attr.name="tipo" attr.type="string"/>
+<key id="d0" for="node" attr.name="layer" attr.type="long"/>
+<graph edgedefault="directed"><node id="BANCO MASTER">
+  <data key="d0">1</data>
+  <data key="d1">banco</data>
+  <data key="d2">0</data>
+</node>
+<node id="Maceió/AL">
+  <data key="d0">0</data>
+  <data key="d1">rpps</data>
+  <data key="d3">120869403.56</data>
+  <data key="d4">8.31</data>
+  <data key="d5">True</data>
+</node>
+<node id="Governo do Estado do Amapá/AP">
+  <data key="d0">0</data>
+  <data key="d1">rpps</data>
+  <data key="d3">119267743.16</data>
+  <data key="d4">1.27</data>
+  <data key="d5">True</data>
+</node>
+<node id="Cajamar/SP">
+  <data key="d0">0</data>
+  <data key="d1">rpps</data>
+  <data key="d3">107198228.53999999</data>
+  <data key="d4">11.41</data>
+  <data key="d5">False</data>
+</node>
+<node id="Itaguaí/RJ">
+  <data key="d0">0</data>
+  <data key="d1">rpps</data>
+  <data key="d3">67603487.89</data>
+  <data key="d4">11.41</data>
+  <data key="d5">True</data>
+</node>
+<node id="Aparecida de Goiânia/GO">
+  <data key="d0">0</data>
+  <data key="d1">rpps</data>
+  <data key="d3">48610495.4</data>
+  <data key="d4">4.97</data>
+  <data key="d5">True</data>
+</node>
+<node id="Araras/SP">
+  <data key="d0">0</data>
+  <data key="d1">rpps</data>
+  <data key="d3">34134389.69</data>
+  <data key="d4">6.92</data>
+  <data key="d5">True</data>
+</node>
+<node id="Brodowski/SP">
+  <data key="d0">0</data>
+  <data key="d1">rpps</data>
+  <data key="d3">11520810.72</data>
+  <data key="d4">8.9</data>
+  <data key="d5">False</data>
+</node>
+<node id="Fátima do Sul/MS">
+  <data key="d0">0</data>
+  <data key="d1">rpps</data>
+  <data key="d3">8177466.01</data>
+  <data key="d4">20.46</data>
+  <data key="d5">True</data>
+</node>
+<node id="Santo Antônio de Posse/SP">
+  <data key="d0">0</data>
+  <data key="d1">rpps</data>
+  <data key="d3">5955151.45</data>
+  <data key="d4">4.9</data>
+  <data key="d5">True</data>
+</node>
+<node id="São Gabriel do Oeste/MS">
+  <data key="d0">0</data>
+  <data key="d1">rpps</data>
+  <data key="d3">3469108.58</data>
+  <data key="d4">5.42</data>
+  <data key="d5">True</data>
+</node>
+<node id="Angélica/MS">
+  <data key="d0">0</data>
+  <data key="d1">rpps</data>
+  <data key="d3">2315739.54</data>
+  <data key="d4">5.07</data>
+  <data key="d5">False</data>
+</node>
+<node id="Campo Grande/MS">
+  <data key="d0">0</data>
+  <data key="d1">rpps</data>
+  <data key="d3">1427697.59</data>
+  <data key="d4">4.49</data>
+  <data key="d5">True</data>
+</node>
+<node id="SDG II FIDC">
+  <data key="d0">2</data>
+  <data key="d1">fidc</data>
+  <data key="d3">3360000000.0</data>
+</node>
+<node id="Lormont (Tanure)">
+  <data key="d0">3</data>
+  <data key="d1">devedor</data>
+  <data key="d3">597000000.0</data>
+</node>
+<node id="Banvox (debênture)">
+  <data key="d0">3</data>
+  <data key="d1">devedor</data>
+  <data key="d3">380000000.0</data>
+</node>
+<node id="Super Empreend.">
+  <data key="d0">3</data>
+  <data key="d1">devedor</data>
+  <data key="d3">22000000.0</data>
+</node>
+<edge source="BANCO MASTER" target="SDG II FIDC">
+  <data key="d6">cessao_credito</data>
+  <data key="d7">1129000000.0</data>
+  <data key="d8">2 cessões 19/12/2024</data>
+</edge>
+<edge source="Maceió/AL" target="BANCO MASTER">
+  <data key="d6">aportou_em</data>
+  <data key="d7">120869403.56</data>
+  <data key="d9">8.31</data>
+  <data key="d10">Letra Financeira</data>
+</edge>
+<edge source="Governo do Estado do Amapá/AP" target="BANCO MASTER">
+  <data key="d6">aportou_em</data>
+  <data key="d7">119267743.16</data>
+  <data key="d9">1.27</data>
+  <data key="d10">Letra Financeira</data>
+</edge>
+<edge source="Cajamar/SP" target="BANCO MASTER">
+  <data key="d6">aportou_em</data>
+  <data key="d7">107198228.53999999</data>
+  <data key="d9">11.41</data>
+  <data key="d10">Letra Financeira</data>
+</edge>
+<edge source="Itaguaí/RJ" target="BANCO MASTER">
+  <data key="d6">aportou_em</data>
+  <data key="d7">67603487.89</data>
+  <data key="d9">11.41</data>
+  <data key="d10">Letra Financeira</data>
+</edge>
+<edge source="Aparecida de Goiânia/GO" target="BANCO MASTER">
+  <data key="d6">aportou_em</data>
+  <data key="d7">48610495.4</data>
+  <data key="d9">4.97</data>
+  <data key="d10">Letra Financeira</data>
+</edge>
+<edge source="Araras/SP" target="BANCO MASTER">
+  <data key="d6">aportou_em</data>
+  <data key="d7">34134389.69</data>
+  <data key="d9">6.92</data>
+  <data key="d10">Letra Financeira</data>
+</edge>
+<edge source="Brodowski/SP" target="BANCO MASTER">
+  <data key="d6">aportou_em</data>
+  <data key="d7">11520810.72</data>
+  <data key="d9">8.9</data>
+  <data key="d10">Letra Financeira</data>
+</edge>
+<edge source="Fátima do Sul/MS" target="BANCO MASTER">
+  <data key="d6">aportou_em</data>
+  <data key="d7">8177466.01</data>
+  <data key="d9">20.46</data>
+  <data key="d10">Letra Financeira</data>
+</edge>
+<edge source="Santo Antônio de Posse/SP" target="BANCO MASTER">
+  <data key="d6">aportou_em</data>
+  <data key="d7">5955151.45</data>
+  <data key="d9">4.9</data>
+  <data key="d10">Letra Financeira</data>
+</edge>
+<edge source="São Gabriel do Oeste/MS" target="BANCO MASTER">
+  <data key="d6">aportou_em</data>
+  <data key="d7">3469108.58</data>
+  <data key="d9">5.42</data>
+  <data key="d10">Letra Financeira</data>
+</edge>
+<edge source="Angélica/MS" target="BANCO MASTER">
+  <data key="d6">aportou_em</data>
+  <data key="d7">2315739.54</data>
+  <data key="d9">5.07</data>
+  <data key="d10">Letra Financeira</data>
+</edge>
+<edge source="Campo Grande/MS" target="BANCO MASTER">
+  <data key="d6">aportou_em</data>
+  <data key="d7">1427697.59</data>
+  <data key="d9">4.49</data>
+  <data key="d10">Letra Financeira</data>
+</edge>
+<edge source="SDG II FIDC" target="Lormont (Tanure)">
+  <data key="d6">credito_a_receber</data>
+  <data key="d7">597000000.0</data>
+</edge>
+<edge source="SDG II FIDC" target="Banvox (debênture)">
+  <data key="d6">credito_a_receber</data>
+  <data key="d7">380000000.0</data>
+</edge>
+<edge source="SDG II FIDC" target="Super Empreend.">
+  <data key="d6">credito_a_receber</data>
+  <data key="d7">22000000.0</data>
+</edge>
+</graph></graphml>

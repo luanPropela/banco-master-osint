@@ -1,0 +1,9 @@
+metrica,reportado_declarado,contrafactual_ajustado_fraude,unidade,fonte
+Ativo total,80.0,28.0,R$ bi,"BACEN (liquidação 18/11/2025); contrafactual = reportado - rombo"
+Caixa real,0.004,0.004,R$ bi,BACEN (R$ 4 mi)
+Patrimonio liquido,positivo (reportado solvente),-50.0,R$ bi,"PF/BC — rombo R$ 50-52 bi => PL real negativo"
+Rombo estimado,0.0,51.0,R$ bi,Polícia Federal / Banco Central
+Custo ao FGC,0.0,40.0,R$ bi,FGC (desembolso p/ cobrir depositantes)
+Carteiras ficticias vendidas ao BRB (via Tirreno),12.2,0.0,R$ bi,"PF/Metrópoles — contratos fabricados, valor real ~0"
+Creditos podres ocultados no SDG II,0.0,3.6,R$ bi,"DF SDG II (FNET) / Folha — 62% sem lastro"
+Alavancagem caixa (Ativo / Caixa),20000.0,20000.0,vezes,"cálculo: 80 bi / 4 mi"

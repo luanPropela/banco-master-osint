@@ -66,18 +66,51 @@ Note o que o dado mostra e o que **não** mostra: o DAIR prova **quem pôs dinhe
 ele **não** rastreia o real específico até um crédito podre específico (sigilo bancário) — o elo é o *ciclo*,
 soldado no Master. Honestidade metodológica preservada.
 
+## 4. Follow-the-money de TODOS os RPPS Tier-1 (padrões pós-liquidação)
+Estendendo o de Maceió para os 15 RPPS com LF do Master, surgem **dois destinos temporais** do dinheiro
+público — ambos visíveis no DAIR (`dados/dair_follow_the_money_resumo.csv` + `..._todos_rpps.csv`):
+
+- **CONGELADO** (carregado a valor de face, posição estática após a liquidação de 18/11/2025) — **9 entes**:
+  Maceió (R$ 120,9 mi), Gov. Amapá/Amprev (R$ 107 mi), Itaguaí (R$ 65 mi), Aparecida de Goiânia (R$ 48,6 mi),
+  Campo Grande, Santo Antônio de Posse… → dinheiro **preso**, sem FGC, venc. 2033-2034.
+- **BAIXADO A ZERO** (provisão/perda total ou venda no secundário) — ex.: **Cajamar (R$ 107,2 mi → R$ 0,03)**,
+  Araras, **Fátima do Sul (20,5% da carteira → ~0)**, São Gabriel do Oeste, Santo Antônio de Posse.
+
+Tier-2 (via fundos do grupo Reag): +15 RPPS, pico somado ~R$ 73 mi (exposição indireta).
+
+## 5. Contrafactual do balanço do Master (o "quão golpista")
+Como o IF.data OData do BACEN estava retornando **HTTP 500** (instável; a re-tentar), o contrafactual foi
+montado das **cifras documentadas** (BACEN/PF/FGC) — `dados/master_balanco_contrafactual.csv`:
+
+| Métrica | Reportado | Contrafactual (ajustado) |
+|---|---|---|
+| Ativo total | R$ 80 bi | ~R$ 28 bi (− rombo) |
+| Caixa real | R$ 4 mi | R$ 4 mi |
+| Patrimônio líquido | "solvente" | **≈ − R$ 50 bi** |
+| Carteiras fictícias (Tirreno→BRB) | vendidas R$ 12,2 bi | valor real ~0 |
+| Créditos podres no SDG II | — | R$ 3,6 bi (62% sem lastro) |
+| Custo ao FGC | — | ~R$ 40 bi |
+
+**Alavancagem-caixa = Ativo/Caixa = R$ 80 bi / R$ 4 mi ≈ 20.000×.** A distância reportado→contrafactual é a
+medida do golpe. (Quando o IF.data OData voltar, dá pra trocar pelas séries trimestrais reais.)
+
+## 6. Grafo de financiamento público (`aportou_em`)
+`recon/grafo_financiamento_publico.py` → `dados/grafo_financiamento_publico.graphml` + `.png`: 17 nós, 16
+arestas. Esquerda = RPPS (tamanho ∝ valor, rótulo com R$ e % da carteira) → **Banco Master** → **SDG II** →
+devedores (Lormont/Banvox/Super). Une o lado-passivo (público) ao lado-ativo (fraude) no nó Master.
+
 ## Como reproduzir
 ```bash
 source ~/miniconda3/etc/profile.d/conda.sh && conda activate master-osint
-python -u investigacao-claude/recon/baixar_carteira_dair.py     # baixa Carteira 2023-2026 (DAIR/SERPRO)
-python -u investigacao-claude/recon/dair_master_analise.py      # inventário + timeline (polars)
+python -u investigacao-claude/recon/baixar_carteira_dair.py     # Carteira 2023-2026 (DAIR/SERPRO)
+python -u investigacao-claude/recon/dair_follow_all.py          # inventário + follow-the-money de TODOS (polars)
+python -u investigacao-claude/recon/grafo_financiamento_publico.py  # grafo aportou_em (networkx)
 ```
 
 ## Limites e próximos passos
-- RPPS com **valor 0** (Santa Rita d'Oeste, Gov. RJ, Tacuru): têm o papel listado mas valorado em 0 —
-  posição zerada/baixada a confirmar.
+- RPPS com **valor 0** (Santa Rita d'Oeste, Gov. RJ, Tacuru): papel listado mas valorado em 0 — a confirmar.
 - Tier-2 (fundos Reag) é exposição **indireta** — não confundir com LF do Master.
-- **Próximos:** anos 2021-2022; cruzar com **BACEN IF.data** (balanço do Master) para o contrafactual;
-  montar o **grafo de financiamento público** (`aportou_em`) ligado ao nó Master.
+- **IF.data OData** estava em 500 — re-tentar p/ substituir o contrafactual por séries trimestrais reais.
+- **Próximos:** anos 2021-2022; ampliar o grafo com os outros financiadores (BRB, demais fundos).
 
-**Fontes:** DAIR/CADPREV (Secretaria de Previdência); Agência Brasil; InfoMoney; NeoFeed; BM&C; CVM/FNET (lado-ativo).
+**Fontes:** DAIR/CADPREV (Secretaria de Previdência); Agência Brasil; InfoMoney; NeoFeed; BM&C; Metrópoles; CVM/FNET (lado-ativo); BACEN (balanço/liquidação).
